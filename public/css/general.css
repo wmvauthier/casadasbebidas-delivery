@@ -1,0 +1,56 @@
+.navbar {
+    height: 60px!important;
+    background-color: #1c4966!important;
+    margin: 0 auto!important;
+    border: none!important;
+    overflow: hidden;
+    position: relative; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+}
+
+.nav-link{
+    color: #F7F7F7!important;
+}
+
+.sidebar-heading{
+    height: 60px!important;
+}
+
+i{
+    color: #F7F7F7!important;
+}
+
+.hidden{
+    visibility: hidden;
+}
+
+.dataTableRow{
+    padding-top: 8%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.floatRight {
+    float: right;
+}
+
+::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #555;
+}

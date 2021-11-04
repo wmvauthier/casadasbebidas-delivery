@@ -1,0 +1,24 @@
+{
+    "sqltools.connections": [
+        {
+            "database": "obpc",
+            "dialect": "MySQL",
+            "name": "localhost",
+            "password": "root",
+            "port": 3306,
+            "server": "localhost",
+            "username": "root"
+        },
+        {
+            "database": "heroku_4cd67c5c93b3547",
+            "dialect": "MySQL",
+            "isActive": true,
+            "isConnected": true,
+            "name": "cleardb-heroku",
+            "password": "cef27e70",
+            "port": 3306,
+            "server": "us-cdbr-iron-east-01.cleardb.net",
+            "username": "bf0baa330612ad"
+        }
+    ]
+}
