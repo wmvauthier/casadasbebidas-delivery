@@ -2,6 +2,16 @@ const mysql = require('../mysql');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
+exports.users = async (req, res, next) => {
+    try {
+        const query = `SELECT * FROM usuarios;`;
+        const result = await mysql.execute(query);
+        return res.status(200).send({ usuarios: result })
+    } catch (error) {
+        return res.status(500).send({ error: error })
+    }
+}
+
 exports.register = async (req, res, next) => {
 
     try {
