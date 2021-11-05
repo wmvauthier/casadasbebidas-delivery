@@ -1,11 +1,10 @@
 {
     "env": {
-        "MYSQL_USER": "root",
-        "MYSQL_PASSWORD": "root",
-        "MYSQL_DATABASE": "obpc",
-        "MYSQL_HOST": "localhost",
+        "MYSQL_USER": "b1685063f53dbd",
+        "MYSQL_PASSWORD": "492133bb",
+        "MYSQL_DATABASE": "heroku_17ab7b7d480e13f",
+        "MYSQL_HOST": "us-cdbr-east-04.cleardb.com",
         "MYSQL_PORT": 3306,
-
-        "JWT_KEY" : "pentecostal"
+        "JWT_KEY" : "casadasbebidas"
     }
 }
