@@ -1,32 +1,32 @@
-var churchTableBody = $("#churchTableBody")[0];
+var productTableBody = $("#productTableBody")[0];
 
 $(document).ready(function () {
 
     checkToken();
 
-    var result = httpGet('/igrejas/api');
-    activateButtonsCarousel(result.igrejas.length);
+    var result = httpGet('/products/api');
+    activateButtonsCarousel(result.produtos.length);
 
-    result.igrejas.forEach(igreja => {
-        createChurch(igreja);
+    result.produtos.forEach(produto => {
+        createProduct(produto);
     });
 
-    DAOgetAllChurchs();
+    DAOgetAllProducts();
     
 });
 
-function DAOgetAllChurchs() {
-    var response = httpGet('/igrejas/api');
-    fillChurchTable(churchTableBody, response.igrejas);
+function DAOgetAllProducts() {
+    var response = httpGet('/products/api');
+    fillProductTable(productTableBody, response.produtos);
 }
 
-function createChurch(igreja) {
+function createProduct(produto) {
 
     $("#resumeMultiCarousel-inner").append($(`
 
     <div class="item">
     <div class="pad15">
-        <p class="lead"><b>${igreja.nome}</b></p>
+        <p class="lead"><b>${produto.nome}</b></p>
         <p class="lead">pastor</p>
         <div class="row">
 
@@ -143,18 +143,18 @@ function activateButtonsCarousel(qtd) {
 
 }
 
-function fillChurchTable(table, data) {
+function fillProductTable(table, data) {
 
     table.innerHTML = "";
 
-    data.forEach(function (church) {
-        createChurchToChurchTable(table, church);
+    data.forEach(function (product) {
+        createProductToProductTable(table, product);
     });
 
 }
 
 //Insere Usuário na Lista de Usuários
-function createChurchToChurchTable(table, church) {
+function createProductToProductTable(table, product) {
 
     var pt = '';
 
@@ -166,18 +166,18 @@ function createChurchToChurchTable(table, church) {
     var td5 = document.createElement("td");
     var td6 = document.createElement("td");
 
-    td1.innerHTML = church.id_igreja;
-    td2.innerHTML = church.nome;
-    td3.innerHTML = church.regiao;
+    td1.innerHTML = product.id_produto;
+    td2.innerHTML = product.nome;
+    td3.innerHTML = product.regiao;
     td4.innerHTML = pt;
-    td5.innerHTML = church.classificacao;
-    td6.innerHTML = `<button class="btn btn-rounded btn-warning" dataID="${church.id_igreja}" 
-                        data-toggle="modal" data-target="#updateChurchModal"
-                        data-backdrop="static" onclick="preUpdateChurch(this)">
+    td5.innerHTML = product.classificacao;
+    td6.innerHTML = `<button class="btn btn-rounded btn-warning" dataID="${product.id_produto}" 
+                        data-toggle="modal" data-target="#updateProductModal"
+                        data-backdrop="static" onclick="preUpdateProduct(this)">
                         Editar</button>
-                     <button class="btn btn-rounded btn-danger" dataID="${church.id_igreja}"
-                        data-toggle="modal" data-target="#deleteChurchModal"
-                        data-backdrop="static" onclick="preDeleteChurch(this)">
+                     <button class="btn btn-rounded btn-danger" dataID="${product.id_produto}"
+                        data-toggle="modal" data-target="#deleteProductModal"
+                        data-backdrop="static" onclick="preDeleteProduct(this)">
                         Excluir</button>`;
 
     td1.setAttribute("data-title", "ID");
