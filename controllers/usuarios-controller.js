@@ -2,16 +2,6 @@ const mysql = require('../mysql');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-exports.getPastores = async (req, res, next) => {
-    try {
-        const query = `SELECT * FROM usuarios WHERE cargo in (1,2,3);`;
-        const result = await mysql.execute(query);
-        return res.status(200).send({ igrejas: result });
-    } catch (error) {
-        return res.status(500).send({ error: error })
-    }
-}
-
 exports.register = async (req, res, next) => {
 
     try {
@@ -49,8 +39,10 @@ exports.register = async (req, res, next) => {
 exports.login = async (req, res, next) => {
 
     try {
+
         const query = `SELECT * FROM usuarios WHERE login = '${req.body.login}'`;
         const results = await mysql.execute(query);
+        console.log(result);
 
         if (results.length < 1) {
             return res.status(401).send({ title: "Acesso negado", class: "alert alert-danger", mensagem: "Usuário ou Senha incorretos" });
