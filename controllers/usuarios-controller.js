@@ -55,12 +55,12 @@ exports.login = async (req, res, next) => {
         const results = await mysql.execute(query);
 
         if (results.length < 1) {
-            return res.status(401).send({ title: "Acesso negado", class: "alert alert-danger", mensagem: "Usuário ou Senha incorretos" });
+            return res.status(401).send({ title: "Acesso negado - login nao encontrado", class: "alert alert-danger", mensagem: "Usuário ou Senha incorretos" });
         }
 
         bcrypt.compare(req.body.senha, results[0].senha, async (err, result) => {
             if (err) {
-                return res.status(401).send({ title: "Acesso negado", class: "alert alert-danger", mensagem: "Usuário ou Senha incorretos" });
+                return res.status(401).send({ title: "Acesso negado - erro no bcrypt", class: "alert alert-danger", mensagem: "Usuário ou Senha incorretos" });
             }
             if (result) {
 
@@ -81,7 +81,7 @@ exports.login = async (req, res, next) => {
                 });
 
             }
-            return res.status(401).send({ title: "Acesso negado", class: "alert alert-danger", mensagem: "Usuário ou Senha incorretos" });
+            return res.status(401).send({ title: "Acesso negado - não tem result", class: "alert alert-danger", mensagem: "Usuário ou Senha incorretos" });
         });
 
     } catch (error) {
