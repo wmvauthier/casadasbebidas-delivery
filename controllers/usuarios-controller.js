@@ -58,31 +58,29 @@ exports.login = async (req, res, next) => {
             return res.status(401).send({ title: "Acesso negado - login nao encontrado", class: "alert alert-danger", mensagem: "Usuário ou Senha incorretos" });
         }
 
-        bcrypt.compare(req.body.senha, results[0].senha, async (err, result) => {
-            if (err) {
-                return res.status(401).send({ title: "Acesso negado - erro no bcrypt", class: "alert alert-danger", mensagem: "Usuário ou Senha incorretos" });
-            }
-            if (result) {
+        if (req.body.senha == results[0].senha) {
 
-                let token = jwt.sign({
-                    id_usuario: results[0].id_usuario,
-                    login: results[0].login
-                },
-                    process.env.JWT_KEY,
-                    {
-                        expiresIn: "360h"
-                    });
-
-                return res.status(200).send({
-                    title: "Sucesso",
-                    class: "alert alert-success",
-                    mensagem: "Autenticado com sucesso",
-                    token: token
+            let token = jwt.sign({
+                id_usuario: results[0].id_usuario,
+                login: results[0].login
+            },
+                process.env.JWT_KEY,
+                {
+                    expiresIn: "360h"
                 });
 
-            }
-            return res.status(401).send({ title: "Acesso negado - não tem result", class: "alert alert-danger", mensagem: "Usuário ou Senha incorretos" });
-        });
+            return res.status(200).send({
+                title: "Sucesso",
+                class: "alert alert-success",
+                mensagem: "Autenticado com sucesso",
+                token: token
+            });
+
+        } else {
+            return res.status(401).send({ title: "Acesso negado - erro no bcrypt", class: "alert alert-danger", mensagem: "Usuário ou Senha incorretos" });
+        }
+
+        return res.status(401).send({ title: "Acesso negado - não tem result", class: "alert alert-danger", mensagem: "Usuário ou Senha incorretos" });
 
     } catch (error) {
         return res.status(500).send({ error: error })
