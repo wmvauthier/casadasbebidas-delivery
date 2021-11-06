@@ -8,7 +8,7 @@ exports.users = async (req, res, next) => {
         const result = await mysql.execute(query);
         return res.status(200).send({ usuarios: result })
     } catch (error) {
-        return res.status(500).send({ error: result })
+        return res.status(500).send({ error: error })
     }
 }
 
