@@ -8,6 +8,7 @@ exports.users = async (req, res, next) => {
         const result = await mysql.execute(query);
         return res.status(200).send({ usuarios: result })
     } catch (error) {
+        console.log(error);
         return res.status(500).send({ error: error })
     }
 }
@@ -52,7 +53,6 @@ exports.login = async (req, res, next) => {
 
         const query = `SELECT * FROM usuarios WHERE login = '${req.body.login}'`;
         const results = await mysql.execute(query);
-        console.log(result);
 
         if (results.length < 1) {
             return res.status(401).send({ title: "Acesso negado", class: "alert alert-danger", mensagem: "Usuário ou Senha incorretos" });
