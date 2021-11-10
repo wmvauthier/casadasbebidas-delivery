@@ -14,10 +14,9 @@ app.set('views', './views');
 /* configurar o middleware express.static */
 app.use(express.static('./public'));
 
-const rotaPages = require('./routes/pages');
 const rotaProducts = require('./routes/products');
 const rotaUsuarios = require('./routes/usuarios');
-const rotaEventos = require('./routes/eventos');
+const rotaPedidos = require('./routes/orders');
 const rotaMusics = require('./routes/musics');
 
 
@@ -35,13 +34,12 @@ app.use((req, res, next) => {
 
 /* CHAMADAS ROUTES FRONTEND */
 app.get('/', (req, res, next) => { res.render('login.ejs')});
-app.get('/home', (req, res, next) => { res.render('home.ejs')});
-app.use('/pages', rotaPages);
+app.get('/home', (req, res, next) => { res.render('orders.ejs')});
 
 /* CHAMADAS ROUTES BACKEND */
 app.use('/products', rotaProducts);
 app.use('/usuarios', rotaUsuarios);
-app.use('/eventos', rotaEventos);
+app.use('/orders', rotaPedidos);
 app.use('/musics', rotaMusics);
 
 
