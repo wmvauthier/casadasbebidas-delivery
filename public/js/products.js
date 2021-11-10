@@ -1,142 +1,142 @@
 $(document).ready(function () {
-    $('#orderDataTable').show();
+    $('#productDataTable').show();
     $('#personDataTable').hide();
     checkToken();
-    DAOgetAllOrders();
+    DAOgetAllProducts();
 });
 
-var orderTableBody = $("#orderTableBody")[0];
+var productTableBody = $("#productTableBody")[0];
 
-$("#btnPreRegisterOrder").click(function () {
-    preRegisterOrder();
+$("#btnPreRegisterProduct").click(function () {
+    preRegisterProduct();
 });
 
-$("#btnDAODeleteOrder").click(function () {
-    DAOdeleteOrder();
+$("#btnDAODeleteProduct").click(function () {
+    DAOdeleteProduct();
 });
 
-$("#btnDAOUpdateOrder").click(function () {
-    DAOupdateOrder();
+$("#btnDAOUpdateProduct").click(function () {
+    DAOupdateProduct();
 });
 
-$("#btnDAORegisterOrder").click(function () {
-    DAOregisterOrder();
+$("#btnDAORegisterProduct").click(function () {
+    DAOregisterProduct();
 });
 
-function DAOgetAllOrders() {
-    var response = httpGet('/orders/api');
-    fillOrderTable(orderTableBody, response.pedidos);
+function DAOgetAllProducts() {
+    var response = httpGet('/products/api');
+    fillProductTable(productTableBody, response.produtos);
 }
 
-function DAOregisterOrder() {
+function DAOregisterProduct() {
 
     var nome = $('#nome').val();
     var imagem = $('#imagem').val();
     var valor = $('#valor').val();
 
-    var url = `/orders/api`;
+    var url = `/products/api`;
     var data = `nome=${nome}&imagem=${imagem}&valor=${valor}`;
 
     var response = httpPost(url, data);
 
-    createOrderToOrderTable(orderTableBody, response);
-    cleanRegisterOrderForm();
-    $('#registerOrderModal').modal('hide');
+    createProductToProductTable(productTableBody, response);
+    cleanRegisterProductForm();
+    $('#registerProductModal').modal('hide');
 
 }
 
-function DAOupdateOrder() {
+function DAOupdateProduct() {
 
     var id = $('#id_produtoUpd').val();
     var nome = $('#nomeUpd').val();
     var imagem = $('#imagemUpd').val();
     var valor = $('#valorUpd').val();
 
-    var url = `/orders/api`;
+    var url = `/products/api`;
     var data = `id_produto=${id}&nome=${nome}&imagem=${imagem}&valor=${valor}`;
 
     httpPut(url, data);
 
-    DAOgetAllOrders();
-    cleanUpdateOrderForm();
-    $('#updateOrderModal').modal('hide');
+    DAOgetAllProducts();
+    cleanUpdateProductForm();
+    $('#updateProductModal').modal('hide');
 
 }
 
-function preRegisterOrder() {
-    cleanRegisterOrderForm();
+function preRegisterProduct() {
+    cleanRegisterProductForm();
 }
 
-function preUpdateOrder(id) {
+function preUpdateProduct(id) {
 
-    cleanUpdateOrderForm();
+    cleanUpdateProductForm();
     var data = id.getAttribute("dataID");
-    var response = httpGet(`/orders/api/${data}`);
-    response = response.pedidos[0];
+    var response = httpGet(`/products/api/${data}`);
+    response = response.produtos[0];
 
     $('#id_produtoUpd').val(response.id_produto);
     $('#nomeUpd').val(response.nome);
     $('#imagemUpd').val(response.imagem);
     $('#valorUpd').val(response.valor);
-    $('#updateOrderModal').modal('show');
+    $('#updateProductModal').modal('show');
 
 }
 
-function preDeleteOrder(id) {
+function preDeleteProduct(id) {
 
-    cleanUpdateOrderForm();
+    cleanUpdateProductForm();
     var data = id.getAttribute("dataID");
-    var response = httpGet(`/orders/api/${data}`);
-    response = response.pedidos[0];
+    var response = httpGet(`/products/api/${data}`);
+    response = response.produtos[0];
 
     $('#nomeDel').html(response.nome);
     $('#id_produtoDel').val(response.id_produto);
-    $('#deleteOrderModal').modal('show');
+    $('#deleteProductModal').modal('show');
 
 }
 
-function DAOdeleteOrder() {
+function DAOdeleteProduct() {
 
     var id = $('#id_produtoDel').val();
-    httpDelete(`/orders/api/${id}`);
-    DAOgetAllOrders();
-    $('#deleteOrderModal').modal('hide');
+    httpDelete(`/products/api/${id}`);
+    DAOgetAllProducts();
+    $('#deleteProductModal').modal('hide');
 
 }
 
-function fillOrderTable(table, data) {
+function fillProductTable(table, data) {
 
     table.innerHTML = "";
 
-    data.forEach(function (order) {
-        createOrderToOrderTable(table, order);
+    data.forEach(function (product) {
+        createProductToProductTable(table, product);
     });
 
 }
 
 //Insere Usuário na Lista de Usuários
-function createOrderToOrderTable(table, order) {
+function createProductToProductTable(table, product) {
 
     var div = document.createElement("div");
 
     div.innerHTML = `
         <div class="card" style="padding-top:0;">
-            <img class="card-img-top" src="${order.imagem}" alt="Card image cap" style="max-height:100%; max-width:100%;">
+            <img class="card-img-top" src="${product.imagem}" alt="Card image cap" style="max-height:100%; max-width:100%;">
             <div class="card-body">
-                <h4 class="card-title"><a title="View Order" dataID="${order.id_produto}" 
-                data-toggle="modal" data-target="#updateOrderModal"
-                data-backdrop="static" onclick="preUpdateOrder(this)">${order.nome}</a></h4>
-                <p class="card-text">R$${order.valor}</p>
+                <h4 class="card-title"><a title="View Product" dataID="${product.id_produto}" 
+                data-toggle="modal" data-target="#updateProductModal"
+                data-backdrop="static" onclick="preUpdateProduct(this)">${product.nome}</a></h4>
+                <p class="card-text">R$${product.valor}</p>
                 <div class="row">
                     <div class="col">
-                        <p class="btn btn-warning btn-rounded" dataID="${order.id_produto}" 
-                        data-toggle="modal" data-target="#updateOrderModal"
-                        data-backdrop="static" onclick="preUpdateOrder(this)">Editar</p>
+                        <p class="btn btn-warning btn-rounded" dataID="${product.id_produto}" 
+                        data-toggle="modal" data-target="#updateProductModal"
+                        data-backdrop="static" onclick="preUpdateProduct(this)">Editar</p>
                     </div>
                     <div class="col">
-                        <a href="#" class="btn btn-danger btn-rounded" dataID="${order.id_produto}"
-                        data-toggle="modal" data-target="#deleteOrderModal"
-                        data-backdrop="static" onclick="preDeleteOrder(this)">Excluir</a>
+                        <a href="#" class="btn btn-danger btn-rounded" dataID="${product.id_produto}"
+                        data-toggle="modal" data-target="#deleteProductModal"
+                        data-backdrop="static" onclick="preDeleteProduct(this)">Excluir</a>
                     </div>
                 </div>
             </div>
@@ -148,10 +148,10 @@ function createOrderToOrderTable(table, order) {
 
 }
 
-function cleanRegisterOrderForm() {
-    $('#registerOrderForm')[0].reset();
+function cleanRegisterProductForm() {
+    $('#registerProductForm')[0].reset();
 }
 
-function cleanUpdateOrderForm() {
-    $('#updateOrderForm')[0].reset();
+function cleanUpdateProductForm() {
+    $('#updateProductForm')[0].reset();
 }
