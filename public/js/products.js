@@ -1,6 +1,5 @@
 $(document).ready(function () {
     $('#productDataTable').show();
-    $('#personDataTable').hide();
     checkToken();
     DAOgetAllProducts();
 });

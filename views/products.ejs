@@ -26,7 +26,7 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light bproduct-bottom">
         <button class="btn" id="menu-toggle">
             <i class="large material-icons">menu</i>
         </button>
@@ -42,11 +42,11 @@
 
     <div class="d-flex" id="wrapper">
 
-        <div class="bg-light border-right" id="sidebar-wrapper">
+        <div class="bg-light bproduct-right" id="sidebar-wrapper">
             <!-- <div class="sidebar-heading"><b>OBPC - System</b></div> -->
             <div class="list-group list-group-flush">
                 <a href="./home" class="list-group-item list-group-item-action bg-light">Pedidos</a>
-                <a href="./orders" class="list-group-item list-group-item-action bg-light">Pedidos</a>
+                <a href="./products" class="list-group-item list-group-item-action bg-light">Produtos</a>
                 <button class="btn btn-danger" data-toggle="modal" data-backdrop="static"
                     data-target="#myModal">Logout</button>
             </div>
@@ -76,8 +76,8 @@
         <!-- LISTA DE MODAIS DE PRODUTOS -->
         <div>
 
-            <!-- Modal para Inserção de Pedidos -->
-            <div class="modal fade" id="registerOrderModal" role="dialog">
+            <!-- Modal para Inserção de Produtos -->
+            <div class="modal fade" id="registerProductModal" role="dialog">
                 <div class="modal-dialog">
 
                     <!-- Modal content-->
@@ -86,7 +86,7 @@
                             <h4 class="modal-title">Insira as Informações do Novo Produto</h4>
                         </div>
                         <div class="modal-body">
-                            <form id="registerOrderForm">
+                            <form id="registerProductForm">
                                 <div class="form-group">
                                     <label for="nome" class="col-form-label">Nome</label>
                                     <input id="nome" type="text" class="form-control">
@@ -102,7 +102,7 @@
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button id="btnDAORegisterOrder" type="button"
+                            <button id="btnDAORegisterProduct" type="button"
                                 class="btn btn-rounded btn-success">Registrar</button>
                             <button type="button" class="btn btn-rounded btn-danger"
                                 data-dismiss="modal">Cancelar</button>
@@ -112,8 +112,8 @@
                 </div>
             </div>
 
-            <!-- Modal para Edição de Orders -->
-            <div class="modal fade" id="updateOrderModal" role="dialog">
+            <!-- Modal para Edição de Products -->
+            <div class="modal fade" id="updateProductModal" role="dialog">
                 <div class="modal-dialog">
 
                     <!-- Modal content-->
@@ -122,7 +122,7 @@
                             <h4 class="modal-title">Insira as Novas Informações do Produto</h4>
                         </div>
                         <div class="modal-body">
-                            <form id="updateOrderForm">
+                            <form id="updateProductForm">
                                 <div class="form-group">
                                     <label for="id" class="col-form-label">ID</label>
                                     <input id="id_produtoUpd" disabled type="text" class="form-control">
@@ -142,7 +142,7 @@
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button id="btnDAOUpdateOrder" type="button"
+                            <button id="btnDAOUpdateProduct" type="button"
                                 class="btn btn-rounded btn-success">Alterar</button>
                             <button type="button" class="btn btn-rounded btn-danger"
                                 data-dismiss="modal">Cancelar</button>
@@ -152,8 +152,8 @@
                 </div>
             </div>
 
-            <!-- Modal para Exclusão de Orders -->
-            <div class="modal fade" id="deleteOrderModal" role="dialog">
+            <!-- Modal para Exclusão de Products -->
+            <div class="modal fade" id="deleteProductModal" role="dialog">
                 <div class="modal-dialog">
 
                     <!-- Modal content-->
@@ -164,7 +164,7 @@
                             <input id="id_produtoDel" class="invisible" />
                         </div>
                         <div class="modal-footer">
-                            <button id="btnDAODeleteOrder" type="button"
+                            <button id="btnDAODeleteProduct" type="button"
                                 class="btn btn-rounded btn-success">Sim</button>
                             <button type="button" class="btn btn-rounded btn-danger" data-dismiss="modal">Não</button>
                         </div>
@@ -181,18 +181,18 @@
 
                 <!-- Data Tables -->
 
-                <div id="orderDataTable" class="row dataTableRow" style="padding-top:2%;">
+                <div id="productDataTable" class="row dataTableRow" style="padding-top:2%;">
 
                     <div class="col-md-12">
 
                         <div class="row">
                             <div class="col-10">
-                                <h4>Lista de Pedidos Cadastrados</h4>
+                                <h4>Lista de Produtos Cadastrados</h4>
                             </div>
                             <div class="col-2">
                                 <button class="btn btn-success floatRight" data-toggle="modal"
-                                    data-target="#registerOrderModal" data-backdrop="static"
-                                    onclick="preRegisterOrder(this)">Adicionar</button>
+                                    data-target="#registerProductModal" data-backdrop="static"
+                                    onclick="preRegisterProduct(this)">Adicionar</button>
                             </div>
                         </div>
 
@@ -202,7 +202,7 @@
 
                 <br>
                 
-                <div id="orderTableBody" class="row" style="margin-right: 5%; margin-left: 5%; max-height: 1800px; overflow-y: scroll;"></div>
+                <div id="productTableBody" class="row" style="margin-right: 5%; margin-left: 5%; max-height: 1800px; overflow-y: scroll;"></div>
 
             </div>
 
@@ -216,7 +216,7 @@
 <link href="css/simple-sidebar.css" rel="stylesheet">
 <link href="css/general.css" rel="stylesheet">
 
-<script src="js/orders.js"></script>
+<script src="js/products.js"></script>
 <script src="js/system/simple-sidebar.js"></script>
 <script src="js/system/dataTable.js"></script>
 

@@ -2,7 +2,7 @@ const mysql = require('../mysql');
 
 exports.getPedidos = async (req, res, next) => {
     try {
-        const query = 'SELECT * FROM pedidos;';
+        const query = 'SELECT * FROM pedidos ORDER BY id_pedido DESC;';
         const result = await mysql.execute(query);
         return res.status(200).send({ pedidos: result })
     } catch (error) {
