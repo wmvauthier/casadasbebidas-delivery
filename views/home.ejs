@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <title>OBPC System</title>
+
+</head>
+
+<body>
+
+    <!-- Modal Cancel Order -->
+    <div id="cancelOrderModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Encerramento</h4>
+                </div>
+                <div class="modal-body">
+                    <p style="text-align: left;">Deseja finalizar o atendimento do pedido?</p><br>
+                    <p id="idFinish" style="text-align: left;"></p>
+                    <p id="nomeFinish" style="text-align: left;"></p>
+                    <p id="enderecoFinish" style="text-align: left;"></p>
+                    <p id="valorFinish" style="text-align: left;"></p>
+                </div>
+                <input id="id_pedidoFinish" class="invisible" />
+                <div class="modal-footer">
+                    <button id="btnDAOCancelOrder" type="button" class="btn btn-danger"
+                        data-dismiss="modal">Sim</button>
+                    <button type="button" class="btn btn-success" data-dismiss="modal">Não</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal Confirm Order -->
+    <div id="attendOrderModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Atendimento</h4>
+                </div>
+                <div class="modal-body">
+                    <p style="text-align: left;">Deseja iniciar o atendimento do pedido?</p><br>
+                    <p id="idAttend" style="text-align: left;"></p>
+                    <p id="nomeAttend" style="text-align: left;"></p>
+                    <p id="enderecoAttend" style="text-align: left;"></p>
+                    <p id="valorAttend" style="text-align: left;"></p>
+                </div>
+                <input id="id_pedidoAttend" class="invisible" />
+                <div class="modal-footer">
+                    <button id="btnDAOAttendOrder" type="button" class="btn btn-danger"
+                        data-dismiss="modal">Sim</button>
+                    <button type="button" class="btn btn-success" data-dismiss="modal">Não</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal Finish Order -->
+    <div id="finishOrderModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Encerramento</h4>
+                </div>
+                <div class="modal-body">
+                    <p style="text-align: left;">Deseja finalizar o atendimento do pedido?</p><br>
+                    <p id="idFinish" style="text-align: left;"></p>
+                    <p id="nomeFinish" style="text-align: left;"></p>
+                    <p id="enderecoFinish" style="text-align: left;"></p>
+                    <p id="valorFinish" style="text-align: left;"></p>
+                </div>
+                <input id="id_pedidoFinish" class="invisible" />
+                <div class="modal-footer">
+                    <button id="btnDAOFinishOrder" type="button" class="btn btn-danger"
+                        data-dismiss="modal">Sim</button>
+                    <button type="button" class="btn btn-success" data-dismiss="modal">Não</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+
+        <button class="btn" id="menu-toggle">
+            <i class="large material-icons">menu</i>
+        </button>
+
+        <div><b>Casa das Bebidas - Delivery System</b></div>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+    </nav>
+
+    <div class="d-flex" id="wrapper">
+
+        <div class="bg-light border-right" id="sidebar-wrapper">
+            <!-- <div class="sidebar-heading"><b>OBPC - System</b></div> -->
+            <div class="list-group list-group-flush">
+                <a href="./home" class="list-group-item list-group-item-action bg-light">Home</a>
+                <a href="./products" class="list-group-item list-group-item-action bg-light">Produtos</a>
+                <button class="btn btn-danger" data-toggle="modal" data-backdrop="static"
+                    data-target="#myModal">Logout</button>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Logout</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p style="text-align: left;">Deseja mesmo sair do sistema?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="logoutButton" type="button" class="btn btn-danger" data-dismiss="modal">Sim</button>
+                        <button type="button" class="btn btn-success" data-dismiss="modal">Não</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="page-content-wrapper">
+
+            <div class="container-fluid">
+                <div id="orderCards" class="row" style="margin: 2%; max-height: 800px; overflow-y: scroll;"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+<link href="css/home.css" rel="stylesheet">
+
+<link href="css/simple-sidebar.css" rel="stylesheet">
+<link href="css/multi_carousel.css" rel="stylesheet">
+<link href="css/gauge.css" rel="stylesheet">
+<link href="css/general.css" rel="stylesheet">
+
+<script src="js/home.js"></script>
+<script src="js/system/simple-sidebar.js"></script>
+<script src="js/system/multi_carousel.js"></script>
+<script src="js/system/gauge.js"></script>
+
+<script src="js/system/httpRequisitions.js"></script>
+
+</html>
