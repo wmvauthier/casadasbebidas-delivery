@@ -54,11 +54,11 @@ exports.updatePedido = async (req, res, next) => {
 
 exports.attendPedido = async (req, res, next) => {
     try {
-        const query = `UPDATE produtos SET andamento = 1 WHERE id_produto = ?`;
-        const result = await mysql.execute(query, [ req.body.id_produto ]);
+        const query = `UPDATE produtos SET andamento = 1 WHERE id_pedido = ?`;
+        const result = await mysql.execute(query, [ req.body.id_pedido ]);
         res.status(202).send({
             mensagem: 'Produto alterado com Sucesso',
-            id_produto: req.body.id_produto
+            id_pedido: req.body.id_pedido
         })
     } catch (error) {
         return res.status(500).send({ error: error })
@@ -67,11 +67,11 @@ exports.attendPedido = async (req, res, next) => {
 
 exports.finishPedido = async (req, res, next) => {
     try {
-        const query = `UPDATE produtos SET andamento = 2 WHERE id_produto = ?`;
-        const result = await mysql.execute(query, [ req.body.id_produto ]);
+        const query = `UPDATE produtos SET andamento = 2 WHERE id_pedido = ?`;
+        const result = await mysql.execute(query, [ req.body.id_pedido ]);
         res.status(202).send({
             mensagem: 'Produto alterado com Sucesso',
-            id_produto: req.body.id_produto
+            id_pedido: req.body.id_pedido
         })
     } catch (error) {
         return res.status(500).send({ error: error })
@@ -80,11 +80,11 @@ exports.finishPedido = async (req, res, next) => {
 
 exports.cancelPedido = async (req, res, next) => {
     try {
-        const query = `UPDATE produtos SET andamento = 3 WHERE id_produto = ?`;
-        const result = await mysql.execute(query, [ req.body.id_produto ]);
+        const query = `UPDATE produtos SET andamento = 3 WHERE id_pedido = ?`;
+        const result = await mysql.execute(query, [ req.body.id_pedido ]);
         res.status(202).send({
             mensagem: 'Produto alterado com Sucesso',
-            id_produto: req.body.id_produto
+            id_pedido: req.body.id_pedido
         })
     } catch (error) {
         return res.status(500).send({ error: error })

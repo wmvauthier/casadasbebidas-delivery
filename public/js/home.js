@@ -187,7 +187,7 @@ function DAOcancelOrder() {
     var id = $('#id_pedidoAttend').val();
 
     var url = `/orders/api/cancel`;
-    var data = `id_produto=${id}`;
+    var data = `id_pedido=${id}`;
     httpPut(url, data);
 
     DAOgetAllOrders();
@@ -200,7 +200,7 @@ function DAOfinishOrder() {
     var id = $('#id_pedidoFinish').val();
 
     var url = `/orders/api/finish`;
-    var data = `id_produto=${id}`;
+    var data = `id_pedido=${id}`;
     httpPut(url, data);
 
     DAOgetAllOrders();
@@ -213,7 +213,7 @@ function DAOattendOrder() {
     var id = $('#id_pedidoAttend').val();
     
     var url = `/orders/api/attend`;
-    var data = `id_produto=${id}`;
+    var data = `id_pedido=${id}`;
     httpPut(url, data);
 
     DAOgetAllOrders();
