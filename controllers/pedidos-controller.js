@@ -52,6 +52,45 @@ exports.updatePedido = async (req, res, next) => {
     }
 }
 
+exports.attendPedido = async (req, res, next) => {
+    try {
+        const query = `UPDATE produtos SET andamento = 1 WHERE id_produto = ?`;
+        const result = await mysql.execute(query, [ req.body.id_produto ]);
+        res.status(202).send({
+            mensagem: 'Produto alterado com Sucesso',
+            id_produto: req.body.id_produto
+        })
+    } catch (error) {
+        return res.status(500).send({ error: error })
+    }
+}
+
+exports.finishPedido = async (req, res, next) => {
+    try {
+        const query = `UPDATE produtos SET andamento = 2 WHERE id_produto = ?`;
+        const result = await mysql.execute(query, [ req.body.id_produto ]);
+        res.status(202).send({
+            mensagem: 'Produto alterado com Sucesso',
+            id_produto: req.body.id_produto
+        })
+    } catch (error) {
+        return res.status(500).send({ error: error })
+    }
+}
+
+exports.cancelPedido = async (req, res, next) => {
+    try {
+        const query = `UPDATE produtos SET andamento = 3 WHERE id_produto = ?`;
+        const result = await mysql.execute(query, [ req.body.id_produto ]);
+        res.status(202).send({
+            mensagem: 'Produto alterado com Sucesso',
+            id_produto: req.body.id_produto
+        })
+    } catch (error) {
+        return res.status(500).send({ error: error })
+    }
+}
+
 exports.deletePedido = async (req, res, next) => {
     try {
         const query = 'DELETE FROM pedidos WHERE id_pedido = ?;';

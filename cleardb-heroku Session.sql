@@ -18,7 +18,7 @@ CREATE TABLE produtos (
 );
 
 CREATE TABLE pedidos (
-    id_produto int not null primary key auto_increment,
+    id_pedido int not null primary key auto_increment,
     cliente varchar(255),
     endereço varchar(255),
     contato varchar(255),
