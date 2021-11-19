@@ -1,7 +1,7 @@
 {
   "name": "rest-api-obpc-system",
   "version": "1.0.0",
-  "description": "Rest API para OBPC System",
+  "description": "Rest API para Casa das Bebidas - Delivery System",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
