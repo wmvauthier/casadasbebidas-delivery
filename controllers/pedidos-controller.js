@@ -54,7 +54,7 @@ exports.updatePedido = async (req, res, next) => {
 
 exports.attendPedido = async (req, res, next) => {
     try {
-        const query = `UPDATE pedidos SET andamento = 1 WHERE id_pedido = ?`;
+        const query = `UPDATE pedidos SET andamento = '1' WHERE id_pedido = ?`;
         const result = await mysql.execute(query, [ req.body.id_pedido ]);
         res.status(202).send({
             mensagem: 'Produto alterado com Sucesso',
@@ -67,7 +67,7 @@ exports.attendPedido = async (req, res, next) => {
 
 exports.finishPedido = async (req, res, next) => {
     try {
-        const query = `UPDATE pedidos SET andamento = 2 WHERE id_pedido = ?`;
+        const query = `UPDATE pedidos SET andamento = '2' WHERE id_pedido = ?`;
         const result = await mysql.execute(query, [ req.body.id_pedido ]);
         res.status(202).send({
             mensagem: 'Produto alterado com Sucesso',
@@ -80,7 +80,7 @@ exports.finishPedido = async (req, res, next) => {
 
 exports.cancelPedido = async (req, res, next) => {
     try {
-        const query = `UPDATE pedidos SET andamento = 3 WHERE id_pedido = ?`;
+        const query = `UPDATE pedidos SET andamento = '3' WHERE id_pedido = ?`;
         const result = await mysql.execute(query, [ req.body.id_pedido ]);
         res.status(202).send({
             mensagem: 'Produto alterado com Sucesso',
