@@ -22,7 +22,7 @@ $(document).ready(function () {
 
 function DAOgetAllOrders() {
 
-    $("#orderCards").html() == "";
+    $("#orderCards").empty();
 
     var result = httpGet('/orders/api');
     //activateButtonsCarousel(result.pedidos.length);
@@ -184,14 +184,14 @@ function createOrder(produto) {
 
 function DAOcancelOrder() {
 
-    var id = $('#id_pedidoAttend').val();
-
+    var id = $('#id_pedidoCancel').val();
+    
     var url = `/orders/api/cancel`;
     var data = `id_pedido=${id}`;
     httpPut(url, data);
 
     DAOgetAllOrders();
-    $('#attendOrderModal').modal('hide');
+    $('#cancelOrderModal').modal('hide');
 
 }
 
@@ -211,7 +211,6 @@ function DAOfinishOrder() {
 function DAOattendOrder() {
 
     var id = $('#id_pedidoAttend').val();
-    
     var url = `/orders/api/attend`;
     var data = `id_pedido=${id}`;
     httpPut(url, data);
@@ -231,7 +230,7 @@ function preCancelOrder(id) {
     $('#nomeCancel').html(response.cliente);
     $('#enderecoCancel').html(response.endereço + " - " + response.ponto_referencia);
     $('#valorCancel').html("R$" + response.valor + " - " + response.forma_pagamento);
-    $('#id_produtoCancel').val(response.id_pedido);
+    $('#id_pedidoCancel').val(response.id_pedido);
     $('#cancelOrderModal').modal('show');
 
 }
@@ -246,7 +245,7 @@ function preFinishOrder(id) {
     $('#nomeFinish').html(response.cliente);
     $('#enderecoFinish').html(response.endereço + " - " + response.ponto_referencia);
     $('#valorFinish').html("R$" + response.valor + " - " + response.forma_pagamento);
-    $('#id_produtoFinish').val(response.id_pedido);
+    $('#id_pedidoFinish').val(response.id_pedido);
     $('#finishOrderModal').modal('show');
 
 }
@@ -261,7 +260,7 @@ function preAttendOrder(id) {
     $('#nomeAttend').html(response.cliente);
     $('#enderecoAttend').html(response.endereço + " - " + response.ponto_referencia);
     $('#valorAttend').html("R$" + response.valor + " - " + response.forma_pagamento);
-    $('#id_produtoAttend').val(response.id_pedido);
+    $('#id_pedidoAttend').val(response.id_pedido);
     $('#attendOrderModal').modal('show');
 
 }

@@ -10,6 +10,16 @@ exports.getPedidos = async (req, res, next) => {
     }
 }
 
+exports.getPedidosToBeAttended = async (req, res, next) => {
+    try {
+        const query = 'SELECT * FROM pedidos WHERE andamento IN (0, 1) ORDER BY id_pedido DESC;';
+        const result = await mysql.execute(query);
+        return res.status(200).send({ pedidos: result })
+    } catch (error) {
+        return res.status(500).send({ error: error })
+    }
+}
+
 exports.getPedido = async (req, res, next) => {
     try {
         const query = 'SELECT * FROM pedidos WHERE id_pedido = ?;';
