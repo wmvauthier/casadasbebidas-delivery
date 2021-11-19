@@ -5,6 +5,7 @@ const OrdersController = require('../controllers/pedidos-controller');
 
 router.get('/', login.opcional, (req, res, next) => { res.render('orders.ejs'); });
 router.get('/api', login.opcional, OrdersController.getPedidos);
+router.get('/api/getPedidosToBeAttended', login.opcional, OrdersController.getPedidosToBeAttended);
 router.get('/api/:id_pedido', login.opcional, OrdersController.getPedido);
 router.post('/api', login.opcional, OrdersController.insertPedido);
 router.put('/api', login.opcional, OrdersController.updatePedido);

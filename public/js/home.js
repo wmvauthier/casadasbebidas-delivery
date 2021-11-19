@@ -24,7 +24,7 @@ function DAOgetAllOrders() {
 
     $("#orderCards").empty();
 
-    var result = httpGet('/orders/api');
+    var result = httpGet('/orders/api/getPedidosToBeAttended');
     //activateButtonsCarousel(result.pedidos.length);
 
     result.pedidos.forEach(produto => {
