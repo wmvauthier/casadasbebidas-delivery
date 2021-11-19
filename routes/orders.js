@@ -4,6 +4,7 @@ const login = require('../middleware/login');
 const OrdersController = require('../controllers/pedidos-controller');
 
 router.get('/', login.opcional, (req, res, next) => { res.render('orders.ejs'); });
+router.get('/home', login.opcional, (req, res, next) => { res.render('home.ejs'); });
 router.get('/api', login.opcional, OrdersController.getPedidos);
 router.get('/api/getPedidosToBeAttended', login.opcional, OrdersController.getPedidosToBeAttended);
 router.get('/api/:id_pedido', login.opcional, OrdersController.getPedido);

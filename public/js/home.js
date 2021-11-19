@@ -119,10 +119,10 @@ function createOrder(produto) {
         if (diffMinutes > 60) {
             if (diffHours > 24) {
                 if (diffDays > 6) {
-                    if (diffDays > 6) {
+                    if (diffDays > 30) {
                         timeDifference = "+" + diffDays + "m";
                     } else {
-                        timeDifference = "+" + diffDays + "sem";
+                        timeDifference = "+" + diffDays + "d";
                     }
                 } else {
                     timeDifference = "+" + diffDays + "d";
