@@ -14,6 +14,7 @@ CREATE TABLE produtos (
     id_produto int not null primary key auto_increment,
     nome varchar(255),
     imagem varchar(255),
+    categoria varchar(255),
     valor float
 );
 
@@ -31,9 +32,13 @@ CREATE TABLE pedidos (
 );
 
 DROP TABLE PEDIDOS;
+DROP TABLE PRODUTOS;
 
-INSERT INTO produtos (nome, imagem, valor)
-VALUES ('Coca Cola 2L', 'https://donbenicio.com.br/wp-content/uploads/2020/02/refrigerante_coca_cola_pet_2l.png', 5.50);
+SELECT * FROM PRODUTOS;
+
+INSERT INTO produtos (nome, imagem, categoria, valor) VALUES
+('Heineken 500mL', 'https://www.imigrantesbebidas.com.br/bebida/images/products/full/222_Cerveja_Heineken_Long_Neck_330_ml.1534622942.jpg', 'Bebidas Alcóolicas', 5.50),
+('Coca Cola 2L', 'https://donbenicio.com.br/wp-content/uploads/2020/02/refrigerante_coca_cola_pet_2l.png', 'Refrigerantes', 5.50);
 
 SELECT * FROM PRODUTOS;
 

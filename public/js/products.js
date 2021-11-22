@@ -120,7 +120,7 @@ function createProductToProductTable(table, product) {
 
     div.innerHTML = `
         <div class="card" style="padding-top:0;">
-            <img class="card-img-top" src="${product.imagem}" alt="Card image cap" style="max-height:100%; max-width:100%;">
+            <img class="card-img-top" src="${product.imagem}" alt="Card image cap" style="object-fit: cover; max-height: 180px;">
             <div class="card-body">
                 <h4 class="card-title"><a title="View Product" dataID="${product.id_produto}" 
                 data-toggle="modal" data-target="#updateProductModal"
