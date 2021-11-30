@@ -2,7 +2,9 @@ const express = require('express');
 const app = express();
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
+var cors = require('cors');
 
+app.use(cors({ origin: null }));
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -33,8 +35,8 @@ app.use((req, res, next) => {
 })
 
 /* CHAMADAS ROUTES FRONTEND */
-app.get('/', (req, res, next) => { res.render('login.ejs')});
-app.get('/home', (req, res, next) => { res.render('home.ejs')});
+app.get('/', (req, res, next) => { res.render('login.ejs') });
+app.get('/home', (req, res, next) => { res.render('home.ejs') });
 
 /* CHAMADAS ROUTES BACKEND */
 app.use('/products', rotaProducts);
