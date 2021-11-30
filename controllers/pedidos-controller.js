@@ -38,7 +38,8 @@ exports.getPedido = async (req, res, next) => {
 
 exports.insertPedido = async (req, res, next) => {
 
-    var data_hora = req.body.data_hora.replaceAll("|", " ");
+    var data_hora = req.body.data_hora.replaceAll("_", " ");
+    var itens = req.body.itens.replaceAll("_", " ");
 
     try {
         const query = `INSERT INTO pedidos 
@@ -46,7 +47,7 @@ exports.insertPedido = async (req, res, next) => {
 
         const result = await mysql.execute(query, [
             req.body.cliente, req.body.endereco, req.body.contato,
-            req.body.pontoReferencia, req.body.formaPagamento, req.body.itens,
+            req.body.pontoReferencia, req.body.formaPagamento, itens,
             0, req.body.valor, data_hora
         ]);
 
