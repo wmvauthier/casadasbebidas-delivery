@@ -38,8 +38,16 @@ exports.getPedido = async (req, res, next) => {
 
 exports.insertPedido = async (req, res, next) => {
 
-    var data_hora = req.body.data_hora.replaceAll("_", " ");
-    var itens = req.body.itens.replaceAll("_", " ");
+    var data_hora = req.body.data_hora;
+    var itens = req.body.itens;
+
+    while (data_hota.includes("_")) {
+        data_hora = data_hora.replace("_", " ");
+    }
+
+    while (itens.includes("_")) {
+        itens = itens.replace("_", " ");
+    }
 
     try {
         const query = `INSERT INTO pedidos 
