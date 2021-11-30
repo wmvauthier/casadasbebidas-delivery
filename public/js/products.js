@@ -32,9 +32,10 @@ function DAOregisterProduct() {
     var nome = $('#nome').val();
     var imagem = $('#imagem').val();
     var valor = $('#valor').val();
+    var categoria = $('#categoria').val();
 
     var url = `/products/api`;
-    var data = `nome=${nome}&imagem=${imagem}&valor=${valor}`;
+    var data = `nome=${nome}&imagem=${imagem}&valor=${valor}&categoria=${categoria}`;
 
     var response = httpPost(url, data);
 
@@ -50,9 +51,10 @@ function DAOupdateProduct() {
     var nome = $('#nomeUpd').val();
     var imagem = $('#imagemUpd').val();
     var valor = $('#valorUpd').val();
+    var categoria = $('#categoria').val();
 
     var url = `/products/api`;
-    var data = `id_produto=${id}&nome=${nome}&imagem=${imagem}&valor=${valor}`;
+    var data = `id_produto=${id}&nome=${nome}&imagem=${imagem}&valor=${valor}&categoria=${categoria}`;
 
     httpPut(url, data);
 
@@ -77,6 +79,7 @@ function preUpdateProduct(id) {
     $('#nomeUpd').val(response.nome);
     $('#imagemUpd').val(response.imagem);
     $('#valorUpd').val(response.valor);
+    $('#categoriaUpd').val(response.categoria);
     $('#updateProductModal').modal('show');
 
 }

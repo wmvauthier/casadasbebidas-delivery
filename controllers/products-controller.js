@@ -22,9 +22,9 @@ exports.getProduto = async (req, res, next) => {
 
 exports.insertProduto = async (req, res, next) => {
     try {
-        const query = `INSERT INTO produtos (nome, imagem, valor) VALUES (?,?,?)`;
+        const query = `INSERT INTO produtos (nome, imagem, categoria, valor) VALUES (?,?,?,?)`;
         const result = await mysql.execute(query, [
-            req.body.nome, req.body.imagem, req.body.valor
+            req.body.nome, req.body.imagem, req.body.categoria, req.body.valor
         ]);
         res.status(201).send({
             mensagem: 'Produto inserido com Sucesso',
@@ -32,6 +32,7 @@ exports.insertProduto = async (req, res, next) => {
             nome: req.body.nome,
             imagem: req.body.imagem,
             valor: req.body.valor,
+            categoria: req.body.categoria
         })
     } catch (error) {
         return res.status(500).send({ error: error })
@@ -40,21 +41,27 @@ exports.insertProduto = async (req, res, next) => {
 
 exports.updateProduto = async (req, res, next) => {
     try {
+
         const query = `UPDATE produtos SET 
-        nome = ?, imagem = ?, valor = ? WHERE id_produto = ?`;
+        nome = ?, imagem = ?, categoria = ?, valor = ? WHERE id_produto = ?`;
+
         const result = await mysql.execute(query, [
-            req.body.nome, req.body.imagem, req.body.valor, req.body.id_produto
+            req.body.nome, req.body.imagem, req.body.categoria, req.body.valor, req.body.id_produto
         ]);
+
         res.status(202).send({
             mensagem: 'Produto alterado com Sucesso',
             id_produto: req.body.id_produto,
             nome: req.body.nome,
             imagem: req.body.imagem,
             valor: req.body.valor,
-        })
+            categoria: req.body.categoria
+        });
+
     } catch (error) {
         return res.status(500).send({ error: error })
     }
+    
 }
 
 exports.deleteProduto = async (req, res, next) => {
