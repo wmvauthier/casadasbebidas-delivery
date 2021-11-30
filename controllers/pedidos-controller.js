@@ -41,7 +41,7 @@ exports.insertPedido = async (req, res, next) => {
     var data_hora = req.body.data_hora;
     var itens = req.body.itens;
 
-    while (data_hota.includes("_")) {
+    while (data_hora.includes("_")) {
         data_hora = data_hora.replace("_", " ");
     }
 
