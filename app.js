@@ -33,7 +33,8 @@ app.use((req, res, next) => {
 })
 
 /* CHAMADAS ROUTES FRONTEND */
-app.get('/', (req, res, next) => { res.render('login.ejs') });
+app.get('/', (req, res, next) => { res.render('homePageDelivery.ejs') });
+app.get('/admin', (req, res, next) => { res.render('login.ejs') });
 app.get('/home', (req, res, next) => { res.render('home.ejs') });
 
 /* CHAMADAS ROUTES BACKEND */
