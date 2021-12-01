@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <!-- basic -->
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <!-- mobile metas -->
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+   <!-- site metas -->
+   <title>Casa das Bebidas - Delivery</title>
+   <meta name="keywords" content="">
+   <meta name="description" content="">
+   <meta name="author" content="">
+   <!-- bootstrap css -->
+   <link rel="stylesheet" type="text/css" href="css2/bootstrap.min.css">
+   <!-- style css -->
+   <link rel="stylesheet" type="text/css" href="css2/style.css">
+   <!-- Responsive-->
+   <link rel="stylesheet" href="css2/responsive.css">
+   <!-- Scrollbar Custom CSS -->
+   <link rel="stylesheet" href="css2/jquery.mCustomScrollbar.min.css">
+   <!-- Tweaks for older IEs-->
+   <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+   <!-- fonts -->
+   <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+   <!-- font awesome -->
+   <link rel="stylesheet" type="text/css"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+   <!--  -->
+   <!-- owl stylesheets -->
+   <link href="https://fonts.googleapis.com/css?family=Great+Vibes|Poppins:400,700&display=swap&subset=latin-ext"
+      rel="stylesheet">
+   <link rel="stylesheet" href="css2/owl.carousel.min.css">
+   <link rel="stylesoeet" href="css2/owl.theme.default.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+      media="screen">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+</head>
+
+<body>
+
+   <div id="notificationBubble" class="row ml-auto pull-right"
+      style="position:fixed;bottom:40px;right:40px;margin:0;padding:5px 3px;z-index: 1000;">
+      <div class="alert-group" style="width:100%">
+
+         <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <div id="notificationBubbleText"></div>
+         </div>
+
+         <!-- <div class="alert alert-info">
+            <strong>Heads up!</strong> This alert needs your attention, but it's not super important.
+         </div>
+         <div class="alert alert-warning alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <strong>Warning!</strong> Better check yourself, you're not looking too good.
+         </div>
+         <div class="alert alert-danger alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <strong>Oh snap!</strong> Change a few things up and try submitting again.
+         </div> -->
+
+      </div>
+   </div>
+
+   <button id="chartButton" onclick="openNav()"
+      style="position:fixed;bottom:40px;right:40px;margin:0;padding:5px 3px;z-index: 999;background-color:#252525;"
+      class="floatingButton" href="#">
+      <i class="fa fa-shopping-cart my-float" style="margin-top:2px; font-size: 25px;"></i>
+      <span id="productCounter" class='badgeAlert'>0</span>
+   </button>
+
+   <!-- banner bg main start -->
+   <div class="banner_bg_main">
+
+      <div class="container">
+         <div class="header_section_top">
+            <div class="row">
+               <div class="col-sm-12">
+                  <div class="custom_menu">
+                     <ul>
+                        <li>Casa das Bebidas - Delivery</li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <!-- logo section end -->
+      <!-- header section start -->
+      <div class="header_section">
+         <div class="container">
+            <div class="containt_main">
+
+               <div id="mySidenav" class="sidenav" style="z-index: 999;">
+
+                  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+                  <div id="divTableSelectedProducts">
+
+                     <p style="font-size: 20px; font-weight: 1000; color:#F26522;"><b>Itens Selecionados</b></p>
+
+                     <table class="table table-borderless">
+                        <thead>
+                           <tr>
+                              <th scope="col">Item</th>
+                              <th scope="col">Qtd</th>
+                              <th scope="col">Valor</th>
+                              <th scope="col">Total</th>
+                           </tr>
+                        </thead>
+                        <tbody id="tableSelectedProducts"></tbody>
+                     </table>
+
+                     <div style="margin:5%">
+                        <div class="buynow_bt"><a onclick="sideChangeToForm()"
+                              style="background-color: #F26522; color: #fff;">CONFIRMAR</a></div>
+                     </div>
+
+                  </div>
+
+                  <div id="divFormSelectedProducts">
+
+                     <div style="margin:5%">
+
+                        <div id="divFormSelectedProductsTag" style="display: none;">
+                           <label id="nomeFormOrderTag" style="color:#F26522">Ops, precisamos de algumas
+                              informações!</label>
+                           <ul id="divFormSelectedProductsTagList">
+                              <li style="color:#F26522">a</li>
+                           </ul>
+                           <br>
+                        </div>
+
+                        <div class="form-group">
+                           <label>Nome:</label><br>
+                           <input id="nomeFormOrder" class="form-control" type="text" name="fullname" required
+                              placeholder="Como podemos lhe chamar?" />
+                        </div>
+
+                        <div class="form-group">
+                           <label>Endereço:</label>
+                           <input id="enderecoFormOrder" class="form-control" type="text" name="fullname" required
+                              placeholder="Qual o endereço para entrega?" />
+                           <span class="Error"></span>
+                        </div>
+
+                        <div class="form-group">
+                           <label>Ponto de Referência:</label>
+                           <input id="pontoReferenciaFormOrder" class="form-control" type="text" name="fullname"
+                              required placeholder="Tem algum ponto de referência?" />
+                           <span class="Error"></span>
+                        </div>
+
+                        <div class="form-group">
+                           <label>Contato:</label>
+                           <input id="contatoFormOrder" class="form-control" type="text" name="fullname" required
+                              placeholder="Qual o seu telefone para contato?" />
+                           <span class="Error"></span>
+                        </div>
+
+                        <div class="form-group">
+                           <label id="formaPagamentoLabel">Forma de Pagamento:</label>
+                           <select id="formaPagamentoFormOrder" class="form-control">
+                              <option disabled selected>Qual será a forma de pagamento?</option>
+                              <option>DINHEIRO</option>
+                              <option>DÉBITO</option>
+                              <option>CRÉDITO</option>
+                           </select>
+                        </div>
+
+                        <div class="row">
+                           <div class="col">
+                              <div class="buynow_bt"><a onclick="sideChangeToTable()"
+                                    style="background-color: #252525; color: #fff;">VOLTAR</a></div>
+                           </div>
+                           <div class="col">
+                              <div class="buynow_bt"><a onclick="checkFieldsToCloseOrder()"
+                                    style="background-color: #F26522; color: #fff;">CONFIRMAR</a></div>
+                           </div>
+                        </div>
+
+                     </div>
+
+                  </div>
+
+               </div>
+
+            </div>
+         </div>
+      </div>
+
+      <!-- header section end -->
+      <!-- banner section start -->
+      <div class="banner_section layout_padding">
+         <div class="container">
+            <div id="my_slider" class="carousel slide" data-ride="carousel">
+               <div class="carousel-inner">
+                  <div class="carousel-item active">
+                     <div class="row">
+                        <div class="col-sm-12">
+                           <h1 class="banner_taital"><br><br><br></h1>
+                           <div id="majorButton" class="buynow_bt"><a href="#">Confira nossos Produtos</a></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- banner section end -->
+
+   </div>
+
+   <br>
+
+   <div id="categoriesDiv" class="fashion_section">
+      <br>
+      <h1 class="fashion_taital"></h1>
+   </div>
+
+   <!-- jewellery  section end -->
+   <!-- footer section start -->
+   <div class="footer_section layout_padding">
+      <div class="container">
+         <div class="location_main" style="padding-bottom: 0%;"><a href="#">Rua Otávio de Freitas, N.555</a></div>
+         <div class="location_main" style="padding-top: 0%; padding-bottom: 0%;"><a href="#">contato@email.com.br</a>
+         </div>
+         <div class="location_main" style="padding-top: 0%;"><a href="#"> (81) 99652-6767</a></div>
+      </div>
+   </div>
+
+   <!-- footer section end -->
+   <!-- copyright section start -->
+   <div class="copyright_section">
+      <div class="container">
+         <p class="copyright_text">© 2022 All Rights Reserved. Design por <a href="https://html.design">Access
+               Tecnology</a></p>
+      </div>
+   </div>
+
+   <!-- copyright section end -->
+   <!-- Javascript files-->
+   <script src="js2/jquery.min.js"></script>
+   <script src="js2/popper.min.js"></script>
+   <script src="js2/bootstrap.bundle.min.js"></script>
+   <script src="js2/jquery-3.0.0.min.js"></script>
+   <script src="js2/plugin.js"></script>
+   <!-- sidebar -->
+   <script src="js2/jquery.mCustomScrollbar.concat.min.js"></script>
+   <script src="js2/custom.js"></script>
+
+   <script>
+
+      var URL_API = 'https://casadasbebidas-delivery.herokuapp.com';
+
+      window.onload = shakeChartButton();
+      window.onload = DAOgetAllProducts();
+      window.onload = updateSelectedProductsTable();
+      window.onload = sideChangeToTable();
+      window.onload = document.getElementById("notificationBubble").style.display = "none";
+
+      function showNotificationBubble(idPedido) {
+
+         $('#notificationBubbleText').empty();
+         $('#notificationBubbleText').append(`<strong>Sucesso!</strong> Seu pedido <b>#${idPedido}</b> foi gerado com sucesso!`);
+         document.getElementById("notificationBubble").style.display = "block";
+
+      }
+
+      function hideNotificationBubble() {
+
+         $('#notificationBubbleText').empty();
+         document.getElementById("notificationBubble").style.display = "none";
+
+      }
+
+      $("#majorButton").click(function () {
+         $('html,body').animate({
+            scrollTop: $("#categoriesDiv").offset().top
+         },
+            'slow');
+      });
+
+      function openNav() {
+         document.getElementById("mySidenav").style.width = "90%";
+      }
+
+      function closeNav() {
+         document.getElementById("mySidenav").style.width = "0";
+      }
+
+      function sideChangeToForm() {
+         document.getElementById("divTableSelectedProducts").style.width = "0";
+         document.getElementById("divTableSelectedProducts").style.display = "none";
+         document.getElementById("divFormSelectedProducts").style.width = "100%";
+         document.getElementById("divFormSelectedProducts").style.display = "block";
+      }
+
+      function sideChangeToTable() {
+         document.getElementById("divTableSelectedProducts").style.width = "100%";
+         document.getElementById("divTableSelectedProducts").style.display = "block";
+         document.getElementById("divFormSelectedProducts").style.width = "0";
+         document.getElementById("divFormSelectedProducts").style.display = "none";
+      }
+
+      function checkFieldsToCloseOrder() {
+
+         var errorsTag = [];
+
+         var nome = $('#nomeFormOrder').val();
+         var endereco = $('#enderecoFormOrder').val();
+         var pontoReferencia = $('#pontoReferenciaFormOrder').val();
+         var contato = $('#contatoFormOrder').val();
+         var formaPagamento = $('#formaPagamentoFormOrder').val();
+
+         if (nome == "")
+            errorsTag.push("Nome Completo");
+
+         if (endereco == "")
+            errorsTag.push("Endereço");
+
+         if (pontoReferencia == "")
+            errorsTag.push("Ponto de Referência");
+
+         if (contato == "")
+            errorsTag.push("Contato");
+
+         if (formaPagamento == null)
+            errorsTag.push("Forma de Pagamento");
+
+         if (errorsTag.length > 0) {
+
+            document.getElementById("divFormSelectedProductsTag").style.display = "block";
+
+            $('#divFormSelectedProductsTagList').empty();
+
+            errorsTag.forEach(error => {
+               $('#divFormSelectedProductsTagList').append(`
+                  <li style="color:#F26522">${error}</li>
+               `);
+            });
+
+         } else {
+
+            document.getElementById("divFormSelectedProductsTag").style.display = "none";
+            DAOregisterOrder();
+
+         }
+
+      }
+
+      function addProduto(objProduto) {
+
+         var data = objProduto.getAttribute("dataID");
+         var produto = JSON.parse(data.replaceAll("'", "\""));
+
+         var objProduto = {
+            nome: produto.nome,
+            valor: produto.valor
+         }
+
+         sideChangeToTable();
+
+         console.log("ADICIONANDO AO LOCALSTORAGE");
+         console.log(objProduto);
+         addProductToLocalStorage(objProduto);
+         hideNotificationBubble();
+
+      }
+
+      function addProductToLocalStorage(produto) {
+
+         var selectedProducts = [];
+         var data = JSON.parse(localStorage.getItem('selectedProducts'));
+
+         if (data)
+            selectedProducts = data;
+
+         var alreadyExists = false;
+
+         selectedProducts.forEach(selectedProduct => {
+
+            if (selectedProduct.nome == produto.nome && !alreadyExists) {
+               selectedProduct.qtd = selectedProduct.qtd + 1;
+               alreadyExists = true;
+            }
+
+         });
+
+         if (!alreadyExists) {
+            produto.qtd = 1;
+            selectedProducts.push(produto);
+         }
+
+         localStorage.setItem('selectedProducts', JSON.stringify(selectedProducts));
+         updateSelectedProductsTable();
+         shakeChartButton();
+
+      }
+
+      function removeProductFromLocalStorage(produto) {
+
+         var selectedProducts = JSON.parse(localStorage.getItem('selectedProducts'));
+         var removedProduct;
+
+         selectedProducts.forEach(selectedProduct => {
+
+            if (selectedProduct.nome == produto.nome) {
+               selectedProduct.qtd = selectedProduct.qtd - 1;
+               removedProduct = selectedProduct;
+            }
+
+         });
+
+         if (removedProduct.qtd < 1) {
+
+            var auxSelectedProducts = selectedProducts;
+            selectedProducts = [];
+
+            auxSelectedProducts.forEach(prd => {
+               if (prd.nome != removedProduct.nome)
+                  selectedProducts.push(prd);
+            });
+
+         }
+
+         localStorage.setItem('selectedProducts', JSON.stringify(selectedProducts));
+         updateSelectedProductsTable();
+         shakeChartButton();
+
+      }
+
+      function alterProductFromLocalStorage(nomeProduto, option) {
+
+         var selectedProducts = [];
+         var data = JSON.parse(localStorage.getItem('selectedProducts'));
+         var selectedProduct = {};
+
+         if (data)
+            selectedProducts = data;
+
+         if (selectedProducts.length > 0) {
+
+            selectedProducts.forEach(produto => {
+
+               if (produto.nome == nomeProduto)
+                  selectedProduct = produto;
+
+            });
+
+            if (selectedProduct.nome != null && option == "plus")
+               addProductToLocalStorage(selectedProduct);
+
+            if (selectedProduct.nome != null && option == "minus")
+               removeProductFromLocalStorage(selectedProduct);
+
+         }
+
+      }
+
+      function DAOgetAllProducts() {
+
+         var response = httpGet('/products/api');
+
+         var categorias = [];
+
+         response.produtos.forEach(produto => {
+            if (categorias.indexOf(produto.categoria) < 0) {
+               categorias.push(produto.categoria);
+            }
+         });
+
+         categorias.forEach(categoria => {
+
+            var produtosFromCategoria = "";
+
+            response.produtos.forEach(produto => {
+
+               if (produto.categoria == categoria) {
+
+                  produtosFromCategoria += `
+                  
+                  <div class="col-lg-3 col-sm-3">
+                     <div class="box_main">
+                        <h4 class="shirt_text">${produto.nome}</h4>
+                        <div class="electronic_img"><img src="${produto.imagem}"></div>
+                        <div class="btn_main">
+                           <div class="buy_bt"><a 
+                              onclick="addProduto(this)" 
+                              style="cursor: pointer; color: #f26522;"
+                              dataId="${JSON.stringify(produto).replaceAll('"', '\'')}">Adicionar</a></div>
+                           <div class="seemore_bt">
+                              <p class="price_text"><span style="color: #262626;">R$ ${produto.valor}</span></p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  
+                  `;
+               }
+            });
+
+            $('#categoriesDiv').append(`
+            
+            <div class="fashion_section">
+
+               <br>
+               <h1 class="fashion_taital">${categoria}</h1>
+
+               <div id="${categoria}_main_slider" class="carousel slide" data-ride="carousel">
+                  <div class="carousel-inner">
+                     <div class="carousel-item active">
+                        <div class="container">
+                           <div class="fashion_section_2">
+                              <div class="row">
+                                 ${produtosFromCategoria}
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+            </div>
+            
+            `);
+
+         });
+
+      }
+
+      function updateSelectedProductsTable() {
+
+         $('#tableSelectedProducts').empty();
+
+         var selectedProducts = [];
+         var data = JSON.parse(localStorage.getItem('selectedProducts'));
+
+         if (data)
+            selectedProducts = data;
+
+         if (selectedProducts.length > 0) {
+
+            var soma = 0;
+
+            selectedProducts.forEach(produto => {
+
+               var somaPrd = produto.qtd * produto.valor;
+
+               $('#tableSelectedProducts').append(`
+                  <tr>
+                     <td>${produto.nome}</td>
+                     <td class="row">
+                        <div class="col">
+                           <b onclick="alterProductFromLocalStorage('${produto.nome}', 'minus')" style="cursor: pointer; background-color: #F26522; color: #FFF; border-radius: 50px; padding:5px; ">-</b>
+                        </div>
+                        <div class="col">${produto.qtd}</div>
+                        <div class="col">
+                           <b onclick="alterProductFromLocalStorage('${produto.nome}', 'plus')" style="cursor: pointer; background-color: #F26522; color: #FFF; border-radius: 50px; padding:5px; ">+</b>
+                        </div>
+                     </td>
+                     <td>R$${produto.valor}</td>
+                     <td>R$${somaPrd}</td>
+                  </tr>
+               `);
+
+               soma += somaPrd;
+
+            });
+
+            $('#tableSelectedProducts').append(`
+               <tr>
+                  <td></td>
+                  <td></td>
+                  <td style="font-weight: 1000; color:#F26522;"><b>Total</b></td>
+                  <td style="font-weight: 1000; color:#F26522;"><b>R$${soma}</b></td>
+               </tr>
+            `);
+
+            $('#formaPagamentoLabel').empty();
+            $('#formaPagamentoLabel').append(`Forma de Pagamento: (R$${soma})`);
+
+         } else {
+            const element = document.querySelector('#chartButton');
+            element.style.visibility = "hidden";
+            closeNav();
+         }
+
+      }
+
+      function prepareInfoToRegisterOrder() {
+
+         var dat = new Date();
+         var userTimezoneOffset = dat.getTimezoneOffset() * 60000;
+         var date = new Date(dat.getTime() - userTimezoneOffset);
+         var month = (date.getMonth() + 1);
+
+         if (month < 10)
+            month = "0" + month;
+
+         var data_hora = date.getHours() + ":" + date.getMinutes() + " " + date.getDate() + "/" + month + "/" + date.getFullYear();
+         var soma = 0;
+         var itens = "";
+
+         var selectedProducts = [];
+         var data = JSON.parse(localStorage.getItem('selectedProducts'));
+
+         if (data)
+            selectedProducts = data;
+
+         if (selectedProducts.length > 0) {
+
+            selectedProducts.forEach(produto => {
+               itens += `${produto.nome}|${produto.valor}|${produto.qtd};`;
+               soma += (produto.qtd * produto.valor)
+            });
+
+         }
+
+         var obj = {
+            data_hora: data_hora,
+            itens: itens,
+            soma: soma
+         }
+
+         return obj;
+
+      }
+
+      function DAOregisterOrder() {
+
+         var itemsFromOrder = prepareInfoToRegisterOrder();
+
+         var cliente = $('#nomeFormOrder').val();
+         var endereco = $('#enderecoFormOrder').val();
+         var contato = $('#contatoFormOrder').val();
+         var pontoReferencia = $('#pontoReferenciaFormOrder').val();
+         var formaPagamento = $('#formaPagamentoFormOrder:selected').text();
+
+         var itens = itemsFromOrder.itens.replaceAll(" ", "_");
+         var valor = itemsFromOrder.soma;
+         var data_hora = itemsFromOrder.data_hora.replaceAll(" ", "_");
+
+         var url = `/orders/api`;
+         var data = `cliente=${cliente}&endereco=${endereco}&contato=${contato}&pontoReferencia=${pontoReferencia}&formaPagamento=${formaPagamento}&itens=${itens}&valor=${valor}&data_hora=${data_hora}`;
+
+         var response = httpPost(url, data);
+         console.log(response);
+
+         if (response.mensagem) {
+            showNotificationBubble(response.id_pedido);
+            localStorage.clear();
+            updateSelectedProductsTable();
+            closeNav();
+         }
+
+      }
+
+      function httpGet(theUrl) {
+         theUrl = URL_API + theUrl
+         var theUrl2 = "GET => " + theUrl
+         console.log(theUrl2);
+         var xmlHttp = new XMLHttpRequest();
+         xmlHttp.open("GET", theUrl, false); // false for synchronous request
+         xmlHttp.send(null);
+         console.log(xmlHttp.responseText);
+         return JSON.parse(xmlHttp.responseText);
+      }
+
+      function httpPost(theUrl, data) {
+         theUrl = URL_API + theUrl
+         var theUrl2 = "POST => " + theUrl
+         console.log(theUrl2);
+         var xmlHttp = new XMLHttpRequest();
+         xmlHttp.open("POST", theUrl, false); // false for synchronous request
+         xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+         xmlHttp.send(data);
+         console.log(xmlHttp.responseText);
+         return JSON.parse(xmlHttp.responseText);
+      }
+
+      function shakeChartButton() {
+
+         const element = document.querySelector('#chartButton');
+         element.style.visibility = "hidden";
+
+         var selectedProducts = [];
+         var data = JSON.parse(localStorage.getItem('selectedProducts'));
+
+         if (data)
+            selectedProducts = data;
+
+         var qtd = 0;
+
+         selectedProducts.forEach(prd => {
+            qtd += prd.qtd;
+         })
+
+         $('#productCounter').html(qtd);
+
+         if (qtd > 0) {
+
+            element.style.visibility = "visible";
+            element.classList.add('animated', 'shake');
+            setTimeout(function () {
+               element.classList.remove('shake');
+            }, 500);
+
+         } else {
+            const element = document.querySelector('#chartButton');
+            element.style.visibility = "hidden";
+            closeNav();
+         }
+
+      }
+
+   </script>
+
+</body>
+
+</html>
