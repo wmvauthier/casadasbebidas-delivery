@@ -51,7 +51,7 @@ function DAOupdateProduct() {
     var nome = $('#nomeUpd').val();
     var imagem = $('#imagemUpd').val();
     var valor = $('#valorUpd').val();
-    var categoria = $('#categoria').val();
+    var categoria = $('#categoriaUpd').val();
 
     var url = `/products/api`;
     var data = `id_produto=${id}&nome=${nome}&imagem=${imagem}&valor=${valor}&categoria=${categoria}`;
