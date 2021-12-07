@@ -87,3 +87,16 @@ exports.login = async (req, res, next) => {
     }
 
 }
+
+exports.checkHours = async (req, res, next) => {
+
+    try {
+
+        const query = `SELECT * FROM checkHours'`;
+        const result = await mysql.execute(query);
+        return res.status(200).send({ pedidos: result })
+    } catch (error) {
+        return res.status(500).send({ error: error })
+    }
+
+}

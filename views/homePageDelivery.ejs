@@ -166,12 +166,21 @@
 
                         <div class="form-group">
                            <label id="formaPagamentoLabel">Forma de Pagamento:</label>
-                           <select id="formaPagamentoFormOrder" class="form-control">
+                           <select id="formaPagamentoFormOrder" class="form-control"
+                              onchange="checkFieldsToCloseOrder()">
                               <option disabled selected>Qual será a forma de pagamento?</option>
+                              <option>PIX</option>
                               <option>DINHEIRO</option>
                               <option>DÉBITO</option>
                               <option>CRÉDITO</option>
                            </select>
+                        </div>
+
+                        <div id="trocoFormOrderDiv" class="form-group">
+                           <label>Troco:</label>
+                           <input id="trocoFormOrder" class="form-control" type="text" name="fullname" required
+                              placeholder="Gostaria de troco? Se sim, para qual valor?" />
+                           <span class="Error"></span>
                         </div>
 
                         <div class="row">
@@ -264,6 +273,7 @@
       window.onload = updateSelectedProductsTable();
       window.onload = sideChangeToTable();
       window.onload = document.getElementById("notificationBubble").style.display = "none";
+      window.onload = document.getElementById("trocoFormOrderDiv").style.display = "none";
 
       function showNotificationBubble(idPedido) {
 
@@ -331,8 +341,16 @@
          if (contato == "")
             errorsTag.push("Contato");
 
-         if (formaPagamento == null)
+         if (formaPagamento == null) {
             errorsTag.push("Forma de Pagamento");
+            document.getElementById("trocoFormOrderDiv").style.display = "none";
+         } else {
+            if (formaPagamento == "DINHEIRO") {
+               document.getElementById("trocoFormOrderDiv").style.display = "block";
+            } else {
+               document.getElementById("trocoFormOrderDiv").style.display = "none";
+            }
+         }
 
          if (errorsTag.length > 0) {
 
@@ -641,14 +659,15 @@
          var endereco = $('#enderecoFormOrder').val();
          var contato = $('#contatoFormOrder').val();
          var pontoReferencia = $('#pontoReferenciaFormOrder').val();
-         var formaPagamento = $('#formaPagamentoFormOrder:selected').text();
+         var formaPagamento = $('#formaPagamentoFormOrder').val();
+         var troco = $('#trocoFormOrderDiv').val();
 
          var itens = itemsFromOrder.itens.replaceAll(" ", "_");
          var valor = itemsFromOrder.soma;
          var data_hora = itemsFromOrder.data_hora.replaceAll(" ", "_");
 
          var url = `/orders/api`;
-         var data = `cliente=${cliente}&endereco=${endereco}&contato=${contato}&pontoReferencia=${pontoReferencia}&formaPagamento=${formaPagamento}&itens=${itens}&valor=${valor}&data_hora=${data_hora}`;
+         var data = `cliente=${cliente}&endereco=${endereco}&contato=${contato}&pontoReferencia=${pontoReferencia}&formaPagamento=${formaPagamento}&itens=${itens}&valor=${valor}&data_hora=${data_hora}&troco=${troco}`;
 
          var response = httpPost(url, data);
          console.log(response);
@@ -659,6 +678,10 @@
             updateSelectedProductsTable();
             closeNav();
          }
+
+      }
+
+      function checkHours() {
 
       }
 

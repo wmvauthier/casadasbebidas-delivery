@@ -51,12 +51,12 @@ exports.insertPedido = async (req, res, next) => {
 
     try {
         const query = `INSERT INTO pedidos 
-        (cliente, endereço, contato, ponto_referencia, forma_pagamento, itens, andamento, valor, data_hora) VALUES (?,?,?,?,?,?,?,?,?)`;
+        (cliente, endereço, contato, ponto_referencia, forma_pagamento, itens, andamento, valor, data_hora, troco) VALUES (?,?,?,?,?,?,?,?,?,?)`;
 
         const result = await mysql.execute(query, [
             req.body.cliente, req.body.endereco, req.body.contato,
             req.body.pontoReferencia, req.body.formaPagamento, itens,
-            0, req.body.valor, data_hora
+            0, req.body.valor, data_hora, req.body.troco
         ]);
 
         res.status(201).send({

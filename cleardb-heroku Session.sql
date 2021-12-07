@@ -42,8 +42,6 @@ INSERT INTO produtos (nome, imagem, categoria, valor) VALUES
 
 SELECT * FROM PRODUTOS;
 
-    update pedidos set andamento = 0 where id_pedido = 5;
-
 SELECT * FROM PEDIDOS;
 
 #padrão de id-qtd-preço
