@@ -50,6 +50,11 @@ CREATE TABLE checkHours (
     endHour varchar(255)
 );
 
+SELECT * FROM checkHours;
+
+INSERT INTO checkHours (startHour, endHour)
+VALUES ('08:00', '18:00'); 
+
 #padrão de id-qtd-preço
 INSERT INTO pedidos (cliente, endereço, contato, ponto_referencia, itens, andamento, data_hora, forma_pagamento, valor)
 VALUES ('PirocOsmar', 'Rua AAA', '99652-6767', 'Perto da minha casa', 'Coca-Cola 2L|3|5.5; Heineken 500mL|5|5.5;', '0', '16:07 12/12/2021', 'CRÉDITO', 250);
