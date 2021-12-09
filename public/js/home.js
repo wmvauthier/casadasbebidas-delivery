@@ -106,7 +106,7 @@ function createOrder(produto) {
     var dat1 = produto.data_hora.split(" ");
     var dat2 = dat1[0].split(":");
     var dat3 = dat1[1].split("/");
-    var dat = new Date(dat3[2], dat3[1] - 2, dat3[0], dat2[0], dat2[1], 0, 0);
+    var dat = new Date(dat3[2], dat3[1] - 1, dat3[0], dat2[0], dat2[1], 0, 0);
     var timeDifference = "";
 
     const diffTime = Math.abs(datNow - dat);
@@ -120,7 +120,7 @@ function createOrder(produto) {
             if (diffHours > 24) {
                 if (diffDays > 6) {
                     if (diffDays > 30) {
-                        timeDifference = "+" + diffDays + "m";
+                        timeDifference = "+" + diffDays + "d";
                     } else {
                         timeDifference = "+" + diffDays + "d";
                     }
