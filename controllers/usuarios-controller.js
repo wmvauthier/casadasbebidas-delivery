@@ -99,3 +99,25 @@ exports.checkHours = async (req, res, next) => {
     }
 
 }
+
+exports.updateHours = async (req, res, next) => {
+    try {
+
+        const query = `UPDATE checkHours SET 
+        startHour = ?, endHour = ?`;
+
+        const result = await mysql.execute(query, [
+            req.body.inicio, req.body.termino
+        ]);
+
+        res.status(202).send({
+            mensagem: 'Horário alterado com Sucesso',
+            inicio: req.body.inicio,
+            termino: req.body.termino
+        });
+
+    } catch (error) {
+        return res.status(500).send({ error: error })
+    }
+    
+}

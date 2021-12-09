@@ -41,18 +41,108 @@
 
 </head>
 
+
+
 <body>
 
-   <div id="notificationBubble" class="row ml-auto pull-right"
-      style="position:fixed;bottom:40px;right:40px;margin:0;padding:5px 3px;z-index: 1000;">
-      <div class="alert-group" style="width:100%">
+   <div id="bodyPageClosed">
 
-         <div class="alert alert-success">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            <div id="notificationBubbleText"></div>
+      <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
+      <!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> -->
+      <!-- <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
+      <!------ Include the above in your HEAD tag ---------->
+
+      <style>
+         @import url(http://fonts.googleapis.com/css?family=Roboto);
+
+         * {
+            font-family: 'Roboto', sans-serif;
+         }
+
+         body {
+            background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABZ0RVh0Q3JlYXRpb24gVGltZQAxMC8yOS8xMiKqq3kAAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzVxteM2AAABHklEQVRIib2Vyw6EIAxFW5idr///Qx9sfG3pLEyJ3tAwi5EmBqRo7vHawiEEERHS6x7MTMxMVv6+z3tPMUYSkfTM/R0fEaG2bbMv+Gc4nZzn+dN4HAcREa3r+hi3bcuu68jLskhVIlW073tWaYlQ9+F9IpqmSfq+fwskhdO/AwmUTJXrOuaRQNeRkOd5lq7rXmS5InmERKoER/QMvUAPlZDHcZRhGN4CSeGY+aHMqgcks5RrHv/eeh455x5KrMq2yHQdibDO6ncG/KZWL7M8xDyS1/MIO0NJqdULLS81X6/X6aR0nqBSJcPeZnlZrzN477NKURn2Nus8sjzmEII0TfMiyxUuxphVWjpJkbx0btUnshRihVv70Bv8ItXq6Asoi/ZiCbU6YgAAAABJRU5ErkJggg==);
+         }
+
+         .error-template {
+            padding: 40px 15px;
+            text-align: center;
+         }
+
+         .error-actions {
+            margin-top: 15px;
+            margin-bottom: 15px;
+         }
+
+         .error-actions .btn {
+            margin-right: 10px;
+         }
+
+         .message-box h1 {
+            color: #252932;
+            font-size: 98px;
+            font-weight: 700;
+            line-height: 98px;
+            text-shadow: rgba(61, 61, 61, 0.3) 1px 1px, rgba(61, 61, 61, 0.2) 2px 2px, rgba(61, 61, 61, 0.3) 3px 3px;
+         }
+      </style>
+
+      <div class="container">
+         <div class="row">
+            <div class="col-md-6">
+               <div class="error-template">
+                  <h1>
+                     :) Oops!</h1>
+                  <!-- <h2>
+                     Não estamos funcionando no momento</h2> -->
+                  <h1>
+                     Não estamos funcionando no momento!</h1>
+                  <div>
+                        Pedimos desculpas pelo inconveniente mas não estamos funcionando no momento!
+                        Nosso horário de funcionamento é das 08:00h às 18:00h.</p>
+                     <p>
+                        — Casa das Bebidas Delivery</p>
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-6">
+               <svg class="svg-box" width="380px" height="500px" viewbox="0 0 837 1045" version="1.1"
+                  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                  xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+                  <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+                     <path d="M353,9 L626.664028,170 L626.664028,487 L353,642 L79.3359724,487 L79.3359724,170 L353,9 Z"
+                        id="Polygon-1" stroke="#3bafda" stroke-width="6" sketch:type="MSShapeGroup"></path>
+                     <path
+                        d="M78.5,529 L147,569.186414 L147,648.311216 L78.5,687 L10,648.311216 L10,569.186414 L78.5,529 Z"
+                        id="Polygon-2" stroke="#7266ba" stroke-width="6" sketch:type="MSShapeGroup"></path>
+                     <path
+                        d="M773,186 L827,217.538705 L827,279.636651 L773,310 L719,279.636651 L719,217.538705 L773,186 Z"
+                        id="Polygon-3" stroke="#f76397" stroke-width="6" sketch:type="MSShapeGroup"></path>
+                     <path
+                        d="M639,529 L773,607.846761 L773,763.091627 L639,839 L505,763.091627 L505,607.846761 L639,529 Z"
+                        id="Polygon-4" stroke="#00b19d" stroke-width="6" sketch:type="MSShapeGroup"></path>
+                     <path
+                        d="M281,801 L383,861.025276 L383,979.21169 L281,1037 L179,979.21169 L179,861.025276 L281,801 Z"
+                        id="Polygon-5" stroke="#ffaa00" stroke-width="6" sketch:type="MSShapeGroup"></path>
+                  </g>
+               </svg>
+            </div>
          </div>
+      </div>
 
-         <!-- <div class="alert alert-info">
+   </div>
+
+   <div id="bodyPage">
+
+      <div id="notificationBubble" class="row ml-auto pull-right"
+         style="position:fixed;bottom:40px;right:40px;margin:0;padding:5px 3px;z-index: 1000;">
+         <div class="alert-group" style="width:100%">
+
+            <div class="alert alert-success">
+               <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+               <div id="notificationBubbleText"></div>
+            </div>
+
+            <!-- <div class="alert alert-info">
             <strong>Heads up!</strong> This alert needs your attention, but it's not super important.
          </div>
          <div class="alert alert-warning alert-dismissable">
@@ -64,193 +154,195 @@
             <strong>Oh snap!</strong> Change a few things up and try submitting again.
          </div> -->
 
+         </div>
       </div>
-   </div>
 
-   <button id="chartButton" onclick="openNav()"
-      style="position:fixed;bottom:40px;right:40px;margin:0;padding:5px 3px;z-index: 999;background-color:#252525;"
-      class="floatingButton" href="#">
-      <i class="fa fa-shopping-cart my-float" style="margin-top:2px; font-size: 25px;"></i>
-      <span id="productCounter" class='badgeAlert'>0</span>
-   </button>
+      <button id="chartButton" onclick="openNav()"
+         style="position:fixed;bottom:40px;right:40px;margin:0;padding:5px 3px;z-index: 999;background-color:#252525;"
+         class="floatingButton" href="#">
+         <i class="fa fa-shopping-cart my-float" style="margin-top:2px; font-size: 25px;"></i>
+         <span id="productCounter" class='badgeAlert'>0</span>
+      </button>
 
-   <!-- banner bg main start -->
-   <div class="banner_bg_main">
+      <!-- banner bg main start -->
+      <div class="banner_bg_main">
 
-      <div class="container">
-         <div class="header_section_top">
-            <div class="row">
-               <div class="col-sm-12">
-                  <div class="custom_menu">
-                     <ul>
-                        <li>Casa das Bebidas - Delivery</li>
-                     </ul>
+         <div class="container">
+            <div class="header_section_top">
+               <div class="row">
+                  <div class="col-sm-12">
+                     <div class="custom_menu">
+                        <ul>
+                           <li>Casa das Bebidas - Delivery</li>
+                        </ul>
+                     </div>
                   </div>
                </div>
             </div>
          </div>
-      </div>
 
-      <!-- logo section end -->
-      <!-- header section start -->
-      <div class="header_section">
-         <div class="container">
-            <div class="containt_main">
+         <!-- logo section end -->
+         <!-- header section start -->
+         <div class="header_section">
+            <div class="container">
+               <div class="containt_main">
 
-               <div id="mySidenav" class="sidenav" style="z-index: 999;">
+                  <div id="mySidenav" class="sidenav" style="z-index: 999;">
 
-                  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 
-                  <div id="divTableSelectedProducts">
+                     <div id="divTableSelectedProducts">
 
-                     <p style="font-size: 20px; font-weight: 1000; color:#F26522;"><b>Itens Selecionados</b></p>
+                        <p style="font-size: 20px; font-weight: 1000; color:#F26522;"><b>Itens Selecionados</b></p>
 
-                     <table class="table table-borderless">
-                        <thead>
-                           <tr>
-                              <th scope="col">Item</th>
-                              <th scope="col">Qtd</th>
-                              <th scope="col">Valor</th>
-                              <th scope="col">Total</th>
-                           </tr>
-                        </thead>
-                        <tbody id="tableSelectedProducts"></tbody>
-                     </table>
+                        <table class="table table-borderless">
+                           <thead>
+                              <tr>
+                                 <th scope="col">Item</th>
+                                 <th scope="col">Qtd</th>
+                                 <th scope="col">Valor</th>
+                                 <th scope="col">Total</th>
+                              </tr>
+                           </thead>
+                           <tbody id="tableSelectedProducts"></tbody>
+                        </table>
 
-                     <div style="margin:5%">
-                        <div class="buynow_bt"><a onclick="sideChangeToForm()"
-                              style="background-color: #F26522; color: #fff;">CONFIRMAR</a></div>
+                        <div style="margin:5%">
+                           <div class="buynow_bt"><a onclick="sideChangeToForm()"
+                                 style="background-color: #F26522; color: #fff;">CONFIRMAR</a></div>
+                        </div>
+
+                     </div>
+
+                     <div id="divFormSelectedProducts">
+
+                        <div style="margin:5%">
+
+                           <div id="divFormSelectedProductsTag" style="display: none;">
+                              <label id="nomeFormOrderTag" style="color:#F26522">Ops, precisamos de algumas
+                                 informações!</label>
+                              <ul id="divFormSelectedProductsTagList">
+                                 <li style="color:#F26522">a</li>
+                              </ul>
+                              <br>
+                           </div>
+
+                           <div class="form-group">
+                              <label>Nome:</label><br>
+                              <input id="nomeFormOrder" class="form-control" type="text" name="fullname" required
+                                 placeholder="Como podemos lhe chamar?" />
+                           </div>
+
+                           <div class="form-group">
+                              <label>Endereço:</label>
+                              <input id="enderecoFormOrder" class="form-control" type="text" name="fullname" required
+                                 placeholder="Qual o endereço para entrega?" />
+                              <span class="Error"></span>
+                           </div>
+
+                           <div class="form-group">
+                              <label>Ponto de Referência:</label>
+                              <input id="pontoReferenciaFormOrder" class="form-control" type="text" name="fullname"
+                                 required placeholder="Tem algum ponto de referência?" />
+                              <span class="Error"></span>
+                           </div>
+
+                           <div class="form-group">
+                              <label>Contato:</label>
+                              <input id="contatoFormOrder" class="form-control" type="text" name="fullname" required
+                                 placeholder="Qual o seu telefone para contato?" />
+                              <span class="Error"></span>
+                           </div>
+
+                           <div class="form-group">
+                              <label id="formaPagamentoLabel">Forma de Pagamento:</label>
+                              <select id="formaPagamentoFormOrder" class="form-control"
+                                 onchange="checkFieldsToCloseOrder()">
+                                 <option disabled selected>Qual será a forma de pagamento?</option>
+                                 <option>PIX</option>
+                                 <option>DINHEIRO</option>
+                                 <option>DÉBITO</option>
+                                 <option>CRÉDITO</option>
+                              </select>
+                           </div>
+
+                           <div id="trocoFormOrderDiv" class="form-group">
+                              <label>Troco:</label>
+                              <input id="trocoFormOrder" class="form-control" type="text" name="fullname" required
+                                 placeholder="Gostaria de troco? Se sim, para qual valor?" />
+                              <span class="Error"></span>
+                           </div>
+
+                           <div class="row">
+                              <div class="col">
+                                 <div class="buynow_bt"><a onclick="sideChangeToTable()"
+                                       style="background-color: #252525; color: #fff;">VOLTAR</a></div>
+                              </div>
+                              <div class="col">
+                                 <div class="buynow_bt"><a onclick="checkFieldsToCloseOrder()"
+                                       style="background-color: #F26522; color: #fff;">CONFIRMAR</a></div>
+                              </div>
+                           </div>
+
+                        </div>
+
                      </div>
 
                   </div>
 
-                  <div id="divFormSelectedProducts">
+               </div>
+            </div>
+         </div>
 
-                     <div style="margin:5%">
-
-                        <div id="divFormSelectedProductsTag" style="display: none;">
-                           <label id="nomeFormOrderTag" style="color:#F26522">Ops, precisamos de algumas
-                              informações!</label>
-                           <ul id="divFormSelectedProductsTagList">
-                              <li style="color:#F26522">a</li>
-                           </ul>
-                           <br>
-                        </div>
-
-                        <div class="form-group">
-                           <label>Nome:</label><br>
-                           <input id="nomeFormOrder" class="form-control" type="text" name="fullname" required
-                              placeholder="Como podemos lhe chamar?" />
-                        </div>
-
-                        <div class="form-group">
-                           <label>Endereço:</label>
-                           <input id="enderecoFormOrder" class="form-control" type="text" name="fullname" required
-                              placeholder="Qual o endereço para entrega?" />
-                           <span class="Error"></span>
-                        </div>
-
-                        <div class="form-group">
-                           <label>Ponto de Referência:</label>
-                           <input id="pontoReferenciaFormOrder" class="form-control" type="text" name="fullname"
-                              required placeholder="Tem algum ponto de referência?" />
-                           <span class="Error"></span>
-                        </div>
-
-                        <div class="form-group">
-                           <label>Contato:</label>
-                           <input id="contatoFormOrder" class="form-control" type="text" name="fullname" required
-                              placeholder="Qual o seu telefone para contato?" />
-                           <span class="Error"></span>
-                        </div>
-
-                        <div class="form-group">
-                           <label id="formaPagamentoLabel">Forma de Pagamento:</label>
-                           <select id="formaPagamentoFormOrder" class="form-control"
-                              onchange="checkFieldsToCloseOrder()">
-                              <option disabled selected>Qual será a forma de pagamento?</option>
-                              <option>PIX</option>
-                              <option>DINHEIRO</option>
-                              <option>DÉBITO</option>
-                              <option>CRÉDITO</option>
-                           </select>
-                        </div>
-
-                        <div id="trocoFormOrderDiv" class="form-group">
-                           <label>Troco:</label>
-                           <input id="trocoFormOrder" class="form-control" type="text" name="fullname" required
-                              placeholder="Gostaria de troco? Se sim, para qual valor?" />
-                           <span class="Error"></span>
-                        </div>
-
+         <!-- header section end -->
+         <!-- banner section start -->
+         <div class="banner_section layout_padding">
+            <div class="container">
+               <div id="my_slider" class="carousel slide" data-ride="carousel">
+                  <div class="carousel-inner">
+                     <div class="carousel-item active">
                         <div class="row">
-                           <div class="col">
-                              <div class="buynow_bt"><a onclick="sideChangeToTable()"
-                                    style="background-color: #252525; color: #fff;">VOLTAR</a></div>
+                           <div class="col-sm-12">
+                              <h1 class="banner_taital"><br><br><br></h1>
+                              <div id="majorButton" class="buynow_bt"><a href="#">Confira nossos Produtos</a></div>
                            </div>
-                           <div class="col">
-                              <div class="buynow_bt"><a onclick="checkFieldsToCloseOrder()"
-                                    style="background-color: #F26522; color: #fff;">CONFIRMAR</a></div>
-                           </div>
-                        </div>
-
-                     </div>
-
-                  </div>
-
-               </div>
-
-            </div>
-         </div>
-      </div>
-
-      <!-- header section end -->
-      <!-- banner section start -->
-      <div class="banner_section layout_padding">
-         <div class="container">
-            <div id="my_slider" class="carousel slide" data-ride="carousel">
-               <div class="carousel-inner">
-                  <div class="carousel-item active">
-                     <div class="row">
-                        <div class="col-sm-12">
-                           <h1 class="banner_taital"><br><br><br></h1>
-                           <div id="majorButton" class="buynow_bt"><a href="#">Confira nossos Produtos</a></div>
                         </div>
                      </div>
                   </div>
                </div>
             </div>
          </div>
+         <!-- banner section end -->
+
       </div>
-      <!-- banner section end -->
 
-   </div>
-
-   <br>
-
-   <div id="categoriesDiv" class="fashion_section">
       <br>
-      <h1 class="fashion_taital"></h1>
-   </div>
 
-   <!-- jewellery  section end -->
-   <!-- footer section start -->
-   <div class="footer_section layout_padding">
-      <div class="container">
-         <div class="location_main" style="padding-bottom: 0%;"><a href="#">Rua Otávio de Freitas, N.555</a></div>
-         <div class="location_main" style="padding-top: 0%; padding-bottom: 0%;"><a href="#">contato@email.com.br</a>
+      <div id="categoriesDiv" class="fashion_section">
+         <br>
+         <h1 class="fashion_taital"></h1>
+      </div>
+
+      <!-- jewellery  section end -->
+      <!-- footer section start -->
+      <div class="footer_section layout_padding">
+         <div class="container">
+            <div class="location_main" style="padding-bottom: 0%;"><a href="#">Rua Otávio de Freitas, N.555</a></div>
+            <div class="location_main" style="padding-top: 0%; padding-bottom: 0%;"><a href="#">contato@email.com.br</a>
+            </div>
+            <div class="location_main" style="padding-top: 0%;"><a href="#"> (81) 99652-6767</a></div>
          </div>
-         <div class="location_main" style="padding-top: 0%;"><a href="#"> (81) 99652-6767</a></div>
       </div>
-   </div>
 
-   <!-- footer section end -->
-   <!-- copyright section start -->
-   <div class="copyright_section">
-      <div class="container">
-         <p class="copyright_text">© 2022 All Rights Reserved. Design por <a href="https://html.design">Access
-               Tecnology</a></p>
+      <!-- footer section end -->
+      <!-- copyright section start -->
+      <div class="copyright_section">
+         <div class="container">
+            <p class="copyright_text">© 2022 All Rights Reserved. Design por <a href="https://html.design">Access
+                  Tecnology</a></p>
+         </div>
       </div>
+
    </div>
 
    <!-- copyright section end -->
@@ -268,13 +360,29 @@
 
       var URL_API = 'https://casadasbebidas-delivery.herokuapp.com';
 
-      window.onload = checkHours()
-      window.onload = shakeChartButton();
-      window.onload = DAOgetAllProducts();
-      window.onload = updateSelectedProductsTable();
-      window.onload = sideChangeToTable();
+      window.onload = document.getElementById("bodyPage").style.display = "none";
+      window.onload = document.getElementById("bodyPageClosed").style.display = "none";
       window.onload = document.getElementById("notificationBubble").style.display = "none";
       window.onload = document.getElementById("trocoFormOrderDiv").style.display = "none";
+      window.onload = initialCheck();
+
+      function initialCheck() {
+
+         var check = checkHours();
+
+         if (check) {
+            shakeChartButton();
+            DAOgetAllProducts();
+            updateSelectedProductsTable();
+            sideChangeToTable();
+            document.getElementById("bodyPage").style.display = "block";
+            document.getElementById("bodyPageClosed").style.display = "none";
+         } else {
+            document.getElementById("bodyPageClosed").style.display = "block";
+            document.getElementById("bodyPage").style.display = "none";
+         }
+
+      }
 
       function showNotificationBubble(idPedido) {
 
@@ -686,8 +794,36 @@
 
          var url = `/usuarios/checkHours`;
 
+         var bool = false;
          var response = httpGet(url);
-         console.log(response);
+         var startHour = response.checkHours[0].startHour;
+         var endHour = response.checkHours[0].endHour;
+
+         var dat = new Date();
+         var userTimezoneOffset = dat.getTimezoneOffset() * 60000;
+         var date = new Date(dat.getTime() - userTimezoneOffset);
+
+         var boolStart = false;
+         var boolEnd = false;
+
+         if (date.getUTCHours() >= startHour.split(":")[0]) {
+            if (date.getUTCHours() == startHour.split(":")[0]) {
+               if (date.getUTCMinutes() >= startHour.split(":")[1])
+                  boolStart = true;
+            } else { boolStart = true; }
+         }
+
+         if (date.getUTCHours() <= endHour.split(":")[0]) {
+            if (date.getUTCHours() == endHour.split(":")[0]) {
+               if (date.getUTCMinutes() <= endHour.split(":")[1])
+                  boolEnd = true;
+            } else { boolEnd = true; }
+         }
+
+         if (boolStart && boolEnd)
+            bool = true;
+
+         return bool;
 
       }
 

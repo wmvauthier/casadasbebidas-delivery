@@ -36,6 +36,7 @@ app.use((req, res, next) => {
 app.get('/', (req, res, next) => { res.render('homePageDelivery.ejs') });
 app.get('/admin', (req, res, next) => { res.render('login.ejs') });
 app.get('/home', (req, res, next) => { res.render('home.ejs') });
+app.get('/hours', (req, res, next) => { res.render('hours.ejs') });
 
 /* CHAMADAS ROUTES BACKEND */
 app.use('/products', rotaProducts);
