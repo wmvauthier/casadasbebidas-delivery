@@ -368,15 +368,18 @@
 
       function initialCheck() {
 
+         document.getElementById("bodyPageClosed").style.display = "none";
+         document.getElementById("bodyPage").style.display = "none";
+         
          var check = checkHours();
 
          if (check) {
+            document.getElementById("bodyPage").style.display = "block";
+            document.getElementById("bodyPageClosed").style.display = "none";
             shakeChartButton();
             DAOgetAllProducts();
             updateSelectedProductsTable();
             sideChangeToTable();
-            document.getElementById("bodyPage").style.display = "block";
-            document.getElementById("bodyPageClosed").style.display = "none";
          } else {
             document.getElementById("bodyPageClosed").style.display = "block";
             document.getElementById("bodyPage").style.display = "none";
