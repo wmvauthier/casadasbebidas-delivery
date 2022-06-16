@@ -97,8 +97,8 @@
                   <h1>
                      Não estamos funcionando no momento!</h1>
                   <div>
-                        Pedimos desculpas pelo inconveniente mas não estamos funcionando no momento!
-                        Nosso horário de funcionamento é das 08:00h às 18:00h.</p>
+                     Pedimos desculpas pelo inconveniente mas não estamos funcionando no momento!
+                     Nosso horário de funcionamento é das 08:00h às 18:00h.</p>
                      <p>
                         — Casa das Bebidas Delivery</p>
                   </div>
@@ -320,6 +320,19 @@
 
       <div id="categoriesDiv" class="fashion_section">
          <br>
+
+         <div class="row">
+            <div class="input-group" class="col-sm-12 com-md-6">
+               <input type="text" class="form-control" placeholder="Filtre aqui nossos produtos" id="filterHomePage"
+                  onkeyup="filterProducts(this)">
+               <div class="input-group-append">
+                  <button class="btn btn-secondary" type="button" style="background-color: #f26522; border-color:#f26522 ">
+                     <i class="fa fa-search"></i>
+                  </button>
+               </div>
+            </div>
+         </div>
+
          <h1 class="fashion_taital"></h1>
       </div>
 
@@ -328,7 +341,8 @@
       <div class="footer_section layout_padding">
          <div class="container">
             <div class="location_main" style="padding-bottom: 0%;"><a href="#">Rua Padre Roma, N.102</a></div>
-            <div class="location_main" style="padding-top: 0%; padding-bottom: 0%;"><a href="#">josielsilva31@hotmail.com</a>
+            <div class="location_main" style="padding-top: 0%; padding-bottom: 0%;"><a
+                  href="#">josielsilva31@hotmail.com</a>
             </div>
             <div class="location_main" style="padding-top: 0%;"><a href="#"> (81) 98619-3720</a></div>
          </div>
@@ -366,11 +380,32 @@
       window.onload = document.getElementById("trocoFormOrderDiv").style.display = "none";
       window.onload = initialCheck();
 
+      function filterProducts(inputFilter) {
+
+         console.log(inputFilter.value);
+
+         var produtos = document.getElementsByClassName("produto");
+
+         for (let i = 0; i < produtos.length; i++) {
+            const element = produtos[i];
+
+            if (element.id.includes(inputFilter.value)) {
+               document.getElementById(element.id).style.display = "block";
+            } else {
+               document.getElementById(element.id).style.display = "none";
+            }
+
+         }
+
+         console.log(produto);
+
+      }
+
       function initialCheck() {
 
          document.getElementById("bodyPageClosed").style.display = "none";
          document.getElementById("bodyPage").style.display = "none";
-         
+
          var check = checkHours();
 
          if (check) {
@@ -616,7 +651,7 @@
 
                   produtosFromCategoria += `
                   
-                  <div class="col-lg-3 col-sm-3">
+                  <div id="${produto.nome}" class="col-lg-3 col-sm-3 produto">
                      <div class="box_main">
                         <h4 class="shirt_text">${produto.nome}</h4>
                         <div class="electronic_img"><img src="${produto.imagem}"></div>
