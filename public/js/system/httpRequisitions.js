@@ -1,4 +1,4 @@
-var URL_API = 'https://casadasbebidas-delivery.herokuapp.com';
+var URL_API = 'https://casadasbebidas-bee181a414e8.herokuapp.com';
 //var URL_API = 'localhost:3000';
 
 $('#logoutButton').click(function () {

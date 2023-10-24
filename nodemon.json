@@ -1,9 +1,9 @@
 {
     "env": {
-        "MYSQL_USER": "b1685063f53dbd",
-        "MYSQL_PASSWORD": "492133bb",
-        "MYSQL_DATABASE": "heroku_17ab7b7d480e13f",
-        "MYSQL_HOST": "us-cdbr-east-04.cleardb.com",
+        "MYSQL_USER": "beeccc2ff7f600",
+        "MYSQL_PASSWORD": "54b00443",
+        "MYSQL_DATABASE": "heroku_01923591072a316",
+        "MYSQL_HOST": "us-cdbr-east-06.cleardb.com",
         "MYSQL_PORT": 3306,
         "JWT_KEY" : "casadasbebidas"
     }
